@@ -1,0 +1,1 @@
+Generic boilerplate for creating Node.js applications.
