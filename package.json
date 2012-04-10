@@ -9,6 +9,12 @@
         "type": "git",
         "url": ""
     },
+    "licenses": [
+        {
+            "type": "",
+            "url": "",
+        }
+    ],
     "bugs": {
         "url": ""
     },
