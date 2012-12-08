@@ -1,5 +1,5 @@
 {
-    "name": "",
+    "name": "temp",
     "description": "",
     "version": "0.1.0",
     "author": "",
@@ -12,22 +12,24 @@
     "licenses": [
         {
             "type": "",
-            "url": "",
+            "url": ""
         }
     ],
     "bugs": {
         "url": ""
     },
     "engines": {
-        "node": "~0.6.0"
+        "node": "~0.8.0"
     },
     "dependencies": {
     },
     "devDependencies": {
-        "mocha": "*"
+        "mocha": "*",
+        "should": "*"
     },
     "scripts": {
         "test": "make test"
     },
+    "main": "index",
     "private": true
 }
