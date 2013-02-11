@@ -1,6 +1,6 @@
 'use strict';
 
-var index = require('../index'),
+var index = require('../lib/index'),
     fs = require('fs');
 
 describe('index', function () {

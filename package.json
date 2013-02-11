@@ -30,6 +30,6 @@
     "scripts": {
         "test": "make test"
     },
-    "main": "index",
+    "main": "lib/index",
     "private": true
 }
