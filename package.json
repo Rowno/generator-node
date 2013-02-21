@@ -1,7 +1,7 @@
 {
     "name": "node-boilerplate",
     "description": "Generic boilerplate for creating Node.js applications.",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "author": "Roland Warmerdam (http://rolandwarmerdam.co.nz)",
     "keywords": [],
     "homepage": "https://github.com/Rowno/node-boilerplate",
