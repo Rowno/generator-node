@@ -19,16 +19,18 @@
         "url": "https://github.com/Rowno/node-boilerplate/issues"
     },
     "engines": {
-        "node": "~0.8.0"
+        "node": "0.8.x"
     },
     "dependencies": {
     },
     "devDependencies": {
-        "mocha": "*",
-        "should": "*"
+        "grunt": "0.4.x",
+        "grunt-contrib-jshint": "0.1.x",
+        "grunt-mocha-cli": "1.0.x",
+        "should": "1.2.x"
     },
     "scripts": {
-        "test": "make test"
+        "test": "grunt test"
     },
     "main": "lib/index",
     "private": true
