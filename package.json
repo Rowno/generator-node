@@ -24,10 +24,10 @@
     "dependencies": {
     },
     "devDependencies": {
-        "grunt": "0.4.x",
-        "grunt-contrib-jshint": "0.4.x",
-        "grunt-mocha-cli": "1.0.x",
-        "should": "1.2.x"
+        "grunt": "~0.4.1",
+        "grunt-contrib-jshint": "~0.4.3",
+        "grunt-mocha-cli": "~1.0.5",
+        "should": "~1.2.2"
     },
     "scripts": {
         "test": "grunt test"
