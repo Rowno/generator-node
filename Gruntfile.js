@@ -18,9 +18,6 @@ module.exports = function (grunt) {
             ]
         },
         mochacli: {
-            options: {
-                require: ['should']
-            },
             all: []
         }
     });
