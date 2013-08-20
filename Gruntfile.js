@@ -1,6 +1,10 @@
 'use strict';
 
 module.exports = function (grunt) {
+    // Load all grunt tasks
+    require('load-grunt-tasks')(grunt);
+
+
     grunt.initConfig({
         jshint: {
             options: {
@@ -21,8 +25,6 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-mocha-cli');
 
     grunt.registerTask('test', ['jshint', 'mochacli']);
     grunt.registerTask('default', 'test');
