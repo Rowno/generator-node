@@ -23,7 +23,6 @@
     "nonew": true,
     "plusplus": true,
     "quotmark": true,
-    "regexp": true,
     "undef": true,
     "unused": true,
     "strict": true,
