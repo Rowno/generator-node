@@ -1,23 +1,14 @@
 {
   "name": "node-boilerplate",
-  "description": "Generic boilerplate for creating Node.js applications.",
   "version": "1.1.0",
-  "author": "Roland Warmerdam (http://rolandwarmerdam.co.nz)",
+  "description": "Generic boilerplate for creating Node.js applications.",
+  "author": "Roland Warmerdam (https://rolandwarmerdam.co.nz)",
   "keywords": [],
-  "homepage": "https://github.com/Rowno/node-boilerplate",
   "repository": {
     "type": "git",
     "url": "https://github.com/Rowno/node-boilerplate.git"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://raw.github.com/Rowno/node-boilerplate/master/LICENSE"
-    }
-  ],
-  "bugs": {
-    "url": "https://github.com/Rowno/node-boilerplate/issues"
-  },
+  "license": "MIT",
   "engines": {
     "node": "~0.10.0"
   },
