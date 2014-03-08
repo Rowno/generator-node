@@ -1,38 +1,38 @@
 {
-    "name": "node-boilerplate",
-    "description": "Generic boilerplate for creating Node.js applications.",
-    "version": "1.1.0",
-    "author": "Roland Warmerdam (http://rolandwarmerdam.co.nz)",
-    "keywords": [],
-    "homepage": "https://github.com/Rowno/node-boilerplate",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Rowno/node-boilerplate.git"
-    },
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "https://raw.github.com/Rowno/node-boilerplate/master/LICENSE"
-        }
-    ],
-    "bugs": {
-        "url": "https://github.com/Rowno/node-boilerplate/issues"
-    },
-    "engines": {
-        "node": "~0.10.0"
-    },
-    "dependencies": {
-    },
-    "devDependencies": {
-        "chai": "~1.7.2",
-        "grunt": "~0.4.1",
-        "grunt-contrib-jshint": "~0.6.2",
-        "grunt-mocha-cli": "~1.0.5",
-        "load-grunt-tasks": "~0.1.0"
-    },
-    "scripts": {
-        "test": "grunt test"
-    },
-    "main": "lib/index",
-    "private": true
+  "name": "node-boilerplate",
+  "description": "Generic boilerplate for creating Node.js applications.",
+  "version": "1.1.0",
+  "author": "Roland Warmerdam (http://rolandwarmerdam.co.nz)",
+  "keywords": [],
+  "homepage": "https://github.com/Rowno/node-boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rowno/node-boilerplate.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/Rowno/node-boilerplate/master/LICENSE"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/Rowno/node-boilerplate/issues"
+  },
+  "engines": {
+    "node": "~0.10.0"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "chai": "~1.7.2",
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.2",
+    "grunt-mocha-cli": "~1.0.5",
+    "load-grunt-tasks": "~0.1.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "main": "lib/index",
+  "private": true
 }
