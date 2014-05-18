@@ -1,7 +1,7 @@
 generator-nodejs
 ================
 
-[![Dependency Status](https://david-dm.org/Rowno/node-boilerplate/status.svg)](https://david-dm.org/Rowno/generator-nodejs)
+[![Dependency Status](https://david-dm.org/Rowno/generator-nodejs/status.svg)](https://david-dm.org/Rowno/generator-nodejs)
 
 Generic [Yeoman][] generator for creating Node.js applications and modules.
 
