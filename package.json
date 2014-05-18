@@ -1,29 +1,24 @@
 {
-  "name": "node-boilerplate",
-  "version": "1.1.0",
-  "description": "Generic boilerplate for creating Node.js applications.",
+  "name": "generator-nodejs",
+  "version": "2.0.0",
+  "description": "Generic Yeoman generator for creating Node.js applications and modules.",
   "author": "Roland Warmerdam (https://rolandwarmerdam.co.nz)",
-  "keywords": [],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Rowno/node-boilerplate.git"
-  },
+  "keywords": ["yeoman-generator"],
+  "repository": "Rowno/generator-nodejs",
   "license": "MIT",
+  "main": "app/index.js",
   "engines": {
     "node": "~0.10.0"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "chai": "~1.9.0",
-    "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.8.0",
-    "grunt-mocha-cli": "~1.6.0",
-    "jshint-stylish": "~0.1.5",
-    "load-grunt-tasks": "~0.4.0"
+  "dependencies": {
+    "github": "^0.1.16",
+    "moment": "^2.6.0",
+    "yeoman-generator": "^0.16.0",
+    "yosay": "^0.1.0"
   },
-  "scripts": {
-    "test": "grunt test"
+  "peerDependencies": {
+    "yo": ">=1.0.0"
   },
-  "main": "lib/index",
+  "files": ["app"],
   "private": true
 }
