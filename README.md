@@ -8,7 +8,7 @@ Generic [Yeoman][] generator for creating Node.js applications and modules.
 
 Getting started
 ---------------
- * Install: `npm install -g https://github.com/Rowno/generator-nodejs.git`
+ * Install: `npm install -g https://github.com/Rowno/generator-nodejs/tarball/master`
  * Run: `yo nodejs`
 
 
