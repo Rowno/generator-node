@@ -1,3 +1,9 @@
+### 2.0.0 (18 May, 2014) ###
+
+ * Convert to a Yeoman generator.
+ * Various other improvements.
+
+
 ### 1.1.0 (21 February, 2013)
 
  * Change to the MIT license.
