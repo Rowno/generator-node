@@ -1,20 +1,20 @@
-generator-nodejs
-================
+generator-node
+==============
 
-[![Dependency Status](https://david-dm.org/Rowno/generator-nodejs/status.svg)](https://david-dm.org/Rowno/generator-nodejs)
+[![Dependency Status](https://david-dm.org/Rowno/generator-node/status.svg)](https://david-dm.org/Rowno/generator-node)
 
 Generic [Yeoman][] generator for creating Node.js applications and modules.
 
 
 Getting started
 ---------------
- * Install: `npm install -g https://github.com/Rowno/generator-nodejs/tarball/master`
+ * Install: `npm install -g https://github.com/Rowno/generator-node/tarball/master`
  * Run: `yo nodejs`
 
 
 License
 -------
-generator-nodejs is released under the MIT license.
+generator-node is released under the MIT license.
 
 Copyright © 2012 Roland Warmerdam.
 
