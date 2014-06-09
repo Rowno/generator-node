@@ -1,3 +1,8 @@
+### 3.0.0 (9 June, 2014) ###
+
+ * Rename to generator-node.
+
+
 ### 2.0.0 (18 May, 2014) ###
 
  * Convert to a Yeoman generator.
