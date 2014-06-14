@@ -20,7 +20,7 @@ function githubUserInfo(name, callback) {
 }
 
 
-var NodejsGenerator = yeoman.generators.Base.extend({
+var NodeGenerator = yeoman.generators.Base.extend({
     init: function () {
         var now = moment();
         this.day = now.format('D');
@@ -91,4 +91,4 @@ var NodejsGenerator = yeoman.generators.Base.extend({
     }
 });
 
-module.exports = NodejsGenerator;
+module.exports = NodeGenerator;
