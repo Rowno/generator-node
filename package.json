@@ -10,13 +10,13 @@
   "license": "MIT",
   "main": "app/index.js",
   "engines": {
-    "node": ">= 0.10.x"
+    "node": ">=0.10.0"
   },
   "dependencies": {
-    "github": "^0.1.16",
+    "github": "^0.2.2",
     "moment": "^2.6.0",
     "yeoman-generator": "^0.17.0",
-    "yosay": "^0.2.1"
+    "yosay": "^1.0.0"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
