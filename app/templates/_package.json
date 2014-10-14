@@ -23,5 +23,8 @@
     "load-grunt-tasks": "^0.6.0",
     "time-grunt": "^1.0.0"
   },
+  "files": [
+    "lib"
+  ],
   "private": true
 }
