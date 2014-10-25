@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file.
 This project follows [Semantic Versioning](http://semver.org).
 
+## 3.1.0 / 2014-10-25
+ - add: gratipay badge.
+ - change: support future node versions instead of just current.
+ - change: run unit tests before linting.
+ - add: travis badge.
+ - change: update dependencies.
+ - change: fix some missed generator renames.
+ - change: reformat CHANGELOG.
+
 ## 3.0.0 / 2014-06-09
  - change: rename to generator-node.
 
