@@ -1,3 +1,6 @@
-### 0.1.0 (<%= day %> <%= month %>, <%= year %>)
+# Changelog
+All notable changes to this project will be documented in this file.
+This project follows [Semantic Versioning](http://semver.org).
 
- * Initial release.
+## 0.1.0 / <%= year %>-<%= month %>-<%= day %>
+ - initial release.

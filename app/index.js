@@ -23,8 +23,8 @@ function githubUserInfo(name, callback) {
 var NodeGenerator = yeoman.generators.Base.extend({
     init: function () {
         var now = moment();
-        this.day = now.format('D');
-        this.month = now.format('MMMM');
+        this.day = now.format('DD');
+        this.month = now.format('MM');
         this.year = now.format('YYYY');
 
         this.log(yosay('Atwood\'s Law!'));
