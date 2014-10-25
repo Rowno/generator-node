@@ -4,7 +4,7 @@
 [![Dependency Status](https://david-dm.org/<%= githubUser %>/<%= _.slugify(appname) %>/status.svg)](https://david-dm.org/<%= githubUser %>/<%= _.slugify(appname) %>)
 [![Gratipay](https://img.shields.io/gratipay/<%= githubUser %>.svg)](https://gratipay.com/<%= githubUser %>/)
 
-Node.js project.
+Project description.
 
 
 License

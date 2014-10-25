@@ -1,7 +1,7 @@
 {
   "name": "<%= _.slugify(appname) %>",
   "version": "0.1.0",
-  "description": "Node.js project.",
+  "description": "Project description.",
   "author": "<%= realname %> (<%= website %>)",
   "keywords": [],
   "repository": "<%= githubUser %>/<%= _.slugify(appname) %>",
