@@ -2,7 +2,7 @@ generator-node
 ==============
 
 [![Dependency Status](https://david-dm.org/Rowno/generator-node/status.svg)](https://david-dm.org/Rowno/generator-node)
-[![Gittip](https://img.shields.io/gittip/Rowno.svg)](https://www.gittip.com/Rowno/)
+[![Gratipay](https://img.shields.io/gratipay/Rowno.svg)](https://gratipay.com/Rowno/)
 
 Generic [Yeoman][] generator for creating Node.js applications and modules.
 
