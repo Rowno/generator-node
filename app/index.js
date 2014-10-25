@@ -27,7 +27,7 @@ var NodeGenerator = yeoman.generators.Base.extend({
         this.month = now.format('MM');
         this.year = now.format('YYYY');
 
-        this.log(yosay('Atwood\'s Law!'));
+        this.log(yosay('Any application that can be written in JavaScript, will eventually be written in JavaScript.'));
 
         this.on('end', function () {
             if (!this.options['skip-install']) {
