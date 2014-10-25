@@ -1,29 +1,24 @@
-### 3.0.0 (9 June, 2014) ###
+# Changelog
+All notable changes to this project will be documented in this file.
+This project follows [Semantic Versioning](http://semver.org).
 
- * Rename to generator-node.
+## 3.0.0 / 2014-06-09
+ - change: rename to generator-node.
 
+## 2.0.0 / 2014-05-18
+ - change: convert to a Yeoman generator.
+ - change: various other improvements.
 
-### 2.0.0 (18 May, 2014) ###
+## 1.1.0 / 2013-02-21
+ - change: MIT license.
+ - remove: `.npmignore`.
+ - change: simplify the `.gitignore`.
+ - change: properly fill out the `package.json`.
+ - change: move the `index.js` file to the `lib` directory.
+ - change: move Make to Grunt.
 
- * Convert to a Yeoman generator.
- * Various other improvements.
+## 1.0.1 / 2012-12-08
+ - remove: invalid comments from JSON files.
 
-
-### 1.1.0 (21 February, 2013)
-
- * Change to the MIT license.
- * Remove the `.npmignore`.
- * Simplify the `.gitignore`.
- * Properly fill out the `package.json`.
- * Move the `index.js` file to the `lib` directory.
- * Change from Make to Grunt.
-
-
-### 1.0.1 (8 December, 2012)
-
- * Remove invalid comments from JSON files.
-
-
-### 1.0.0 (8 December, 2012)
-
- * Initial release.
+## 1.0.0 / 2012-12-08
+ - initial release.
