@@ -2,6 +2,18 @@
 All notable changes to this project will be documented in this file.
 This project follows [Semantic Versioning](http://semver.org).
 
+## 4.0.0 / 2015-04-08
+ - change: update dependencies.
+ - change: move away from deprecated/removed yeoman APIs.
+ - change: switch from jshint to eslint.
+ - change: use Hapi style module formatting.
+ - add: store the username prompt result.
+ - change: don't hardcode the installed npm package versions.
+ - change: encourage starting at version 1.0.0.
+ - change: lock the node version to a stable branch (^0.10.0 vs >=0.10.0).
+ - change: the default module / test to be a better example.
+ - change: update travis node version targets.
+
 ## 3.1.0 / 2014-10-25
  - add: gratipay badge.
  - change: support future node versions instead of just current.
