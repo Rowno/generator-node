@@ -6,14 +6,8 @@ module.exports = function (grunt) {
 
 
     grunt.initConfig({
-        jshint: {
-            options: {
-                jshintrc: '.jshintrc',
-                reporter: require('jshint-stylish')
-            },
+        eslint: {
             all: [
-                '.jshintrc',
-                'package.json',
                 '**/*.js',
                 '!node_modules/**/*'
             ]
@@ -24,6 +18,6 @@ module.exports = function (grunt) {
     });
 
 
-    grunt.registerTask('test', ['mochacli', 'jshint']);
+    grunt.registerTask('test', ['mochacli', 'eslint']);
     grunt.registerTask('default', 'test');
 };

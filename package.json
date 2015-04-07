@@ -10,16 +10,17 @@
   "license": "MIT",
   "main": "app/index.js",
   "engines": {
-    "node": ">=0.10.0"
+    "node": "^0.10.0"
   },
   "dependencies": {
     "github": "^0.2.2",
     "moment": "^2.6.0",
-    "yeoman-generator": "^0.17.0",
+    "underscore.string": "^3.0.3",
+    "yeoman-generator": "^0.19.1",
     "yosay": "^1.0.0"
   },
   "peerDependencies": {
-    "yo": ">=1.0.0"
+    "yo": "^1.0.0"
   },
   "files": [
     "app"

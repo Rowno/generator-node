@@ -1,15 +1,17 @@
 'use strict';
-var yeoman = require('yeoman-generator');
-var yosay = require('yosay');
-var moment = require('moment');
 var GitHubApi = require('github');
-var github = new GitHubApi({
+var Moment = require('moment');
+var Slugify = require('underscore.string/slugify');
+var Yeoman = require('yeoman-generator');
+var Yosay = require('yosay');
+
+var internals = {};
+internals.github = new GitHubApi({
     version: '3.0.0'
 });
 
-
-function githubUserInfo(name, callback) {
-    github.user.getFrom({
+internals.githubUserInfo = function (name, callback) {
+    internals.github.user.getFrom({
         user: name
     }, function (err, res) {
         if (err) {
@@ -17,34 +19,29 @@ function githubUserInfo(name, callback) {
         }
         callback(res);
     });
-}
+};
 
 
-var NodeGenerator = yeoman.generators.Base.extend({
+module.exports = Yeoman.generators.Base.extend({
     init: function () {
-        var now = moment();
+        var now = Moment();
         this.day = now.format('DD');
         this.month = now.format('MM');
         this.year = now.format('YYYY');
 
-        this.log(yosay('Any application that can be written in JavaScript, will eventually be written in JavaScript.'));
-
-        this.on('end', function () {
-            if (!this.options['skip-install']) {
-                this.npmInstall();
-            }
-        });
+        this.log(Yosay('Any application that can be written in JavaScript, will eventually be written in JavaScript.'));
     },
 
     askForUsername: function () {
         var done = this.async();
         var prompts = [{
             name: 'githubUser',
-            message: 'What\'s your GitHub username?'
+            message: 'What\'s your GitHub username?',
+            store: true
         }];
 
         this.prompt(prompts, function (props) {
-            githubUserInfo(props.githubUser, function (res) {
+            internals.githubUserInfo(props.githubUser, function (res) {
                 /*jshint camelcase:false */
                 this.githubUser = res.login;
                 this.realname = res.name;
@@ -64,16 +61,12 @@ var NodeGenerator = yeoman.generators.Base.extend({
 
         this.prompt(prompts, function (props) {
             this.appname = props.appname;
+            this.appnameSlug = Slugify(this.appname);
             done();
         }.bind(this));
     },
 
     files: function () {
-        this.mkdir('doc');
-        this.mkdir('example');
-        this.mkdir('lib');
-        this.mkdir('test');
-
         this.copy('lib/index.js', 'lib/index.js');
         this.copy('test/index.js', 'test/index.js');
 
@@ -86,9 +79,18 @@ var NodeGenerator = yeoman.generators.Base.extend({
         this.copy('gitattributes', '.gitattributes');
         this.copy('gitignore', '.gitignore');
         this.copy('Gruntfile.js', 'Gruntfile.js');
-        this.copy('jshintrc', '.jshintrc');
+        this.copy('eslintrc', '.eslintrc');
         this.copy('travis.yml', '.travis.yml');
+    },
+
+    installDependencies: function () {
+        this.npmInstall([
+            'chai',
+            'grunt',
+            'grunt-eslint',
+            'grunt-mocha-cli',
+            'load-grunt-tasks',
+            'time-grunt'
+        ], { 'saveDev': true });
     }
 });
-
-module.exports = NodeGenerator;
