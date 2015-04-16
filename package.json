@@ -1,10 +1,11 @@
 {
-  "name": "generator-node",
+  "name": "@rowno/generator-node",
   "version": "4.0.0",
   "description": "Generic Yeoman generator for creating Node.js applications and modules.",
   "author": "Roland Warmerdam (https://rolandwarmerdam.co.nz)",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "node"
   ],
   "repository": "Rowno/generator-node",
   "license": "MIT",
@@ -24,6 +25,5 @@
   },
   "files": [
     "app"
-  ],
-  "private": true
+  ]
 }
