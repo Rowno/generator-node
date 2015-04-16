@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project follows [Semantic Versioning](http://semver.org).
 
+## 5.0.0 / 2015-04-16
+ - change: convert to a scoped package.
+
 ## 4.0.0 / 2015-04-08
  - change: update dependencies.
  - change: move away from deprecated/removed yeoman APIs.
