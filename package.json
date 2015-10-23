@@ -2,7 +2,7 @@
   "name": "@rowno/generator-node",
   "version": "5.0.0",
   "description": "Generic Yeoman generator for creating Node.js applications and modules.",
-  "author": "Roland Warmerdam (https://rolandwarmerdam.co.nz)",
+  "author": "Roland Warmerdam (https://roland.codes)",
   "keywords": [
     "yeoman-generator",
     "node"
