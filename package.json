@@ -11,7 +11,7 @@
   "license": "MIT",
   "main": "app/index.js",
   "engines": {
-    "node": "^0.10.0"
+    "node": ">=0.10.0"
   },
   "dependencies": {
     "github": "^0.2.2",
