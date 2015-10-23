@@ -20,9 +20,6 @@
     "yeoman-generator": "^0.21.1",
     "yosay": "^1.0.0"
   },
-  "peerDependencies": {
-    "yo": "^1.0.0"
-  },
   "files": [
     "app"
   ]
