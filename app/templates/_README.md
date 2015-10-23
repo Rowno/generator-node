@@ -8,6 +8,6 @@ Project description.
 
 License
 -------
-<%= appname %> is released under the MIT license.
+<%= appname %> is released under the ISC license.
 
-Copyright © <%= year %> <%= realname %>.
+Copyright © <%= year %>, <%= realname %>.

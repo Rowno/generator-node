@@ -5,7 +5,7 @@
   "author": "<%= realname %> (<%= website %>)",
   "keywords": [],
   "repository": "<%= githubUser %>/<%= appnameSlug %>",
-  "license": "MIT",
+  "license": "ISC",
   "main": "lib/index.js",
   "scripts": {
     "test": "grunt test"
