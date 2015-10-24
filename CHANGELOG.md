@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project follows [Semantic Versioning](http://semver.org).
 
+## 6.0.0 / 2015-10-24
+ - remove: gratipay badge.
+ - change: license to ISC.
+ - change: update supported node versions.
+ - change: update dependencies.
+ - remove: peerDependencies.
+ - add: shared eslint config.
+
 ## 5.0.0 / 2015-04-16
  - change: convert to a scoped package.
 
