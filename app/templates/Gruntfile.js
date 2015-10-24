@@ -1,9 +1,10 @@
 'use strict';
+var loadGruntTasks = require('load-grunt-tasks');
+var timeGrunt = require('time-grunt');
+
 
 module.exports = function (grunt) {
-    require('load-grunt-tasks')(grunt);
-    require('time-grunt')(grunt);
-
+    timeGrunt(grunt);
 
     grunt.initConfig({
         eslint: {
@@ -17,7 +18,7 @@ module.exports = function (grunt) {
         }
     });
 
-
+    loadGruntTasks(grunt);
     grunt.registerTask('test', ['mochacli', 'eslint']);
     grunt.registerTask('default', 'test');
 };

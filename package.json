@@ -10,6 +10,9 @@
   "repository": "Rowno/generator-node",
   "license": "MIT",
   "main": "app/index.js",
+  "scripts": {
+    "test": "eslint app/**.js"
+  },
   "engines": {
     "node": ">=0.10.0"
   },
@@ -23,4 +26,8 @@
   "files": [
     "app"
   ]
+  "devDependencies": {
+    "eslint": "^1.7.3",
+    "eslint-config-rowno": "^1.0.1"
+  }
 }

@@ -42,7 +42,6 @@ module.exports = Yeoman.generators.Base.extend({
 
         this.prompt(prompts, function (props) {
             internals.githubUserInfo(props.githubUser, function (res) {
-                /*jshint camelcase:false */
                 this.githubUser = res.login;
                 this.realname = res.name;
                 this.website = res.blog || res.html_url;
@@ -87,10 +86,11 @@ module.exports = Yeoman.generators.Base.extend({
         this.npmInstall([
             'chai',
             'grunt',
+            'eslint-config-rowno',
             'grunt-eslint',
             'grunt-mocha-cli',
             'load-grunt-tasks',
             'time-grunt'
-        ], { 'saveDev': true });
+        ], { saveDev: true });
     }
 });

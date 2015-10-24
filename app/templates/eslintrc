@@ -1,11 +1,6 @@
-{
-    "env": {
-        "node": true,
-        "mocha": true
-    },
-    "rules": {
-        "indent": [2, 4],
-        "new-cap": 0,
-        "quotes": [2, "single", "avoid-escape"]
-    }
-}
+---
+root: true
+extends: rowno
+env:
+    node: true
+    mocha: true
