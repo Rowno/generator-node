@@ -85,10 +85,10 @@ module.exports = Yeoman.generators.Base.extend({
     installDependencies: function () {
         this.npmInstall([
             'chai',
-            'grunt',
             'eslint-config-rowno',
             'grunt-eslint',
             'grunt-mocha-cli',
+            'grunt',
             'load-grunt-tasks',
             'time-grunt'
         ], { saveDev: true });
