@@ -2,7 +2,7 @@
 var Github = require('github');
 var Moment = require('moment');
 var Slugify = require('underscore.string/slugify');
-var Yeoman = require('yeoman-generator');
+var YeomanGenerator = require('yeoman-generator');
 
 
 var github = new Github({
@@ -21,7 +21,7 @@ function githubUserInfo(name, callback) {
 }
 
 
-module.exports = Yeoman.generators.Base.extend({
+module.exports = YeomanGenerator.Base.extend({
     init: function () {
         var now = Moment();
         this.day = now.format('DD');
