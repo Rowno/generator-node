@@ -23,8 +23,7 @@
     "github": "^0.2.2",
     "moment": "^2.6.0",
     "underscore.string": "^3.0.3",
-    "yeoman-generator": "^0.21.1",
-    "yosay": "^1.0.0"
+    "yeoman-generator": "^0.22.5"
   },
   "devDependencies": {
     "eslint": "^1.7.3",

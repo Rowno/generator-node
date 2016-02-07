@@ -3,7 +3,6 @@ var GitHubApi = require('github');
 var Moment = require('moment');
 var Slugify = require('underscore.string/slugify');
 var Yeoman = require('yeoman-generator');
-var Yosay = require('yosay');
 
 var internals = {};
 internals.github = new GitHubApi({
@@ -28,8 +27,6 @@ module.exports = Yeoman.generators.Base.extend({
         this.day = now.format('DD');
         this.month = now.format('MM');
         this.year = now.format('YYYY');
-
-        this.log(Yosay('Any application that can be written in JavaScript, will eventually be written in JavaScript.'));
     },
 
     askForUsername: function () {
