@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project follows [Semantic Versioning](http://semver.org).
 
+## 7.0.0 / 2016-02-07
+ - remove: grunt.
+ - remove: 'internals' variables.
+ - change: switch from mocha to ava.
+ - add: test against node 5.
+ - change: update generator dependencies.
+
 ## 6.0.0 / 2015-10-24
  - remove: gratipay badge.
  - change: license to ISC.
