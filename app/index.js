@@ -1,16 +1,16 @@
 'use strict';
-var GitHubApi = require('github');
+var Github = require('github');
 var Moment = require('moment');
 var Slugify = require('underscore.string/slugify');
 var Yeoman = require('yeoman-generator');
 
-var internals = {};
-internals.github = new GitHubApi({
+
+var github = new Github({
     version: '3.0.0'
 });
 
-internals.githubUserInfo = function (name, callback) {
-    internals.github.user.getFrom({
+function githubUserInfo(name, callback) {
+    github.user.getFrom({
         user: name
     }, function (err, res) {
         if (err) {
@@ -18,7 +18,7 @@ internals.githubUserInfo = function (name, callback) {
         }
         callback(res);
     });
-};
+}
 
 
 module.exports = Yeoman.generators.Base.extend({
@@ -38,7 +38,7 @@ module.exports = Yeoman.generators.Base.extend({
         }];
 
         this.prompt(prompts, function (props) {
-            internals.githubUserInfo(props.githubUser, function (res) {
+            githubUserInfo(props.githubUser, function (res) {
                 this.githubUser = res.login;
                 this.realname = res.name;
                 this.website = res.blog || res.html_url;
