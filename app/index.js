@@ -68,6 +68,7 @@ module.exports = Yeoman.generators.Base.extend({
     files: function () {
         this.copy('lib/index.js', 'lib/index.js');
         this.copy('test/index.js', 'test/index.js');
+        this.copy('test/eslintrc', 'test/.eslintrc');
 
         this.template('_CHANGELOG.md', 'CHANGELOG.md');
         this.template('_LICENSE', 'LICENSE');
@@ -77,20 +78,15 @@ module.exports = Yeoman.generators.Base.extend({
         this.copy('editorconfig', '.editorconfig');
         this.copy('gitattributes', '.gitattributes');
         this.copy('gitignore', '.gitignore');
-        this.copy('Gruntfile.js', 'Gruntfile.js');
         this.copy('eslintrc', '.eslintrc');
         this.copy('travis.yml', '.travis.yml');
     },
 
     installDependencies: function () {
         this.npmInstall([
-            'chai',
+            'ava',
+            'eslint',
             'eslint-config-rowno',
-            'grunt-eslint',
-            'grunt-mocha-cli',
-            'grunt',
-            'load-grunt-tasks',
-            'time-grunt'
         ], { saveDev: true });
     }
 });

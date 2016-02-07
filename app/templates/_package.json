@@ -8,7 +8,7 @@
   "license": "ISC",
   "main": "lib/index.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "eslint lib test && ava"
   },
   "engines": {
     "node": ">=0.10.0"
