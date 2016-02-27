@@ -65,7 +65,7 @@ module.exports = YeomanGenerator.Base.extend({
     files: function () {
         this.copy('lib/index.js', 'lib/index.js');
         this.copy('test/index.js', 'test/index.js');
-        this.copy('test/eslintrc', 'test/.eslintrc');
+        this.copy('test/.eslintrc.yml', 'test/.eslintrc.yml');
 
         this.template('_CHANGELOG.md', 'CHANGELOG.md');
         this.template('_LICENSE', 'LICENSE');
@@ -75,7 +75,7 @@ module.exports = YeomanGenerator.Base.extend({
         this.copy('editorconfig', '.editorconfig');
         this.copy('gitattributes', '.gitattributes');
         this.copy('gitignore', '.gitignore');
-        this.copy('eslintrc', '.eslintrc');
+        this.copy('.eslintrc.yml', '.eslintrc.yml');
         this.copy('travis.yml', '.travis.yml');
     },
 

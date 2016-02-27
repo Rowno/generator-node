@@ -11,7 +11,7 @@
   "license": "MIT",
   "main": "app/index.js",
   "scripts": {
-    "test": "eslint app/**.js"
+    "test": "eslint app"
   },
   "files": [
     "app"
@@ -26,7 +26,7 @@
     "yeoman-generator": "^0.22.5"
   },
   "devDependencies": {
-    "eslint": "^1.7.3",
-    "eslint-config-rowno": "^2.1.0"
+    "eslint": "^2.2.0",
+    "eslint-config-rowno": "^3.0.0"
   }
 }
