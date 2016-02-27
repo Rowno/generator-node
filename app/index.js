@@ -1,8 +1,8 @@
 'use strict';
 var Github = require('github');
-var Moment = require('moment');
-var Slugify = require('underscore.string/slugify');
-var YeomanGenerator = require('yeoman-generator');
+var moment = require('moment');
+var slugify = require('underscore.string/slugify');
+var yeomanGenerator = require('yeoman-generator');
 
 
 var github = new Github({
@@ -21,9 +21,9 @@ function githubUserInfo(name, callback) {
 }
 
 
-module.exports = YeomanGenerator.Base.extend({
+module.exports = yeomanGenerator.Base.extend({
     init: function () {
-        var now = Moment();
+        var now = moment();
         this.day = now.format('DD');
         this.month = now.format('MM');
         this.year = now.format('YYYY');
@@ -57,7 +57,7 @@ module.exports = YeomanGenerator.Base.extend({
 
         this.prompt(prompts, function (props) {
             this.appname = props.appname;
-            this.appnameSlug = Slugify(this.appname);
+            this.appnameSlug = slugify(this.appname);
             done();
         }.bind(this));
     },
