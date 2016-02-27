@@ -72,11 +72,11 @@ module.exports = YeomanGenerator.Base.extend({
         this.template('_package.json', 'package.json');
         this.template('_README.md', 'README.md');
 
-        this.copy('editorconfig', '.editorconfig');
-        this.copy('gitattributes', '.gitattributes');
-        this.copy('gitignore', '.gitignore');
+        this.copy('.editorconfig', '.editorconfig');
+        this.copy('.gitattributes', '.gitattributes');
+        this.copy('.gitignore', '.gitignore');
         this.copy('.eslintrc.yml', '.eslintrc.yml');
-        this.copy('travis.yml', '.travis.yml');
+        this.copy('.travis.yml', '.travis.yml');
     },
 
     installDependencies: function () {
