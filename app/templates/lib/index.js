@@ -1,12 +1,11 @@
-'use strict';
-var url = require('url');
+'use strict'
+const url = require('url')
 
-var DOMAIN = 'localhost';
-
+const DOMAIN = 'localhost'
 
 exports.addDomain = function (inputUrl) {
-    var parsedUrl = url.parse(inputUrl);
-    parsedUrl.host = null;
-    parsedUrl.hostname = DOMAIN;
-    return url.format(parsedUrl);
-};
+  const parsedUrl = url.parse(inputUrl)
+  parsedUrl.host = null
+  parsedUrl.hostname = DOMAIN
+  return url.format(parsedUrl)
+}

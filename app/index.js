@@ -1,89 +1,66 @@
-'use strict';
-var Github = require('github');
-var moment = require('moment');
-var slugify = require('underscore.string/slugify');
-var yeomanGenerator = require('yeoman-generator');
+'use strict'
+const Github = require('github')
+const moment = require('moment')
+const Generator = require('yeoman-generator')
 
+const github = new Github()
 
-var github = new Github({
-    version: '3.0.0'
-});
-
-function githubUserInfo(name, callback) {
-    github.user.getFrom({
-        user: name
-    }, function (err, res) {
-        if (err) {
-            throw new Error('Could not fetch your GitHub profile. Make sure you typed it correctly.\n\n' + err.message);
-        }
-        callback(res);
-    });
+function githubUserInfo(username) {
+  return github.users.getForUser({
+    username
+  }).catch(err => {
+    throw new Error(`Could not fetch your GitHub profile. Make sure you typed it correctly.\n\n${err.message}`)
+  })
 }
 
-
-module.exports = yeomanGenerator.Base.extend({
-    init: function () {
-        var now = moment();
-        this.day = now.format('DD');
-        this.month = now.format('MM');
-        this.year = now.format('YYYY');
-    },
-
-    askForUsername: function () {
-        var done = this.async();
-        var prompts = [{
-            name: 'githubUser',
-            message: 'What\'s your GitHub username?',
-            store: true
-        }];
-
-        this.prompt(prompts, function (props) {
-            githubUserInfo(props.githubUser, function (res) {
-                this.githubUser = res.login;
-                this.realname = res.name;
-                this.website = res.blog || res.html_url;
-                done();
-            }.bind(this));
-        }.bind(this));
-    },
-
-    askForAppName: function () {
-        var done = this.async();
-        var prompts = [{
-            name: 'appname',
-            message: 'What\'s the name of your project?',
-            default: this.appname
-        }];
-
-        this.prompt(prompts, function (props) {
-            this.appname = props.appname;
-            this.appnameSlug = slugify(this.appname);
-            done();
-        }.bind(this));
-    },
-
-    files: function () {
-        this.copy('lib/index.js', 'lib/index.js');
-        this.copy('test/index.js', 'test/index.js');
-        this.copy('test/.eslintrc.yml', 'test/.eslintrc.yml');
-
-        this.template('_CHANGELOG.md', 'CHANGELOG.md');
-        this.template('_LICENSE', 'LICENSE');
-        this.template('_package.json', 'package.json');
-        this.template('_README.md', 'README.md');
-
-        this.copy('.editorconfig', '.editorconfig');
-        this.copy('.gitattributes', '.gitattributes');
-        this.copy('.gitignore', '.gitignore');
-        this.copy('.eslintrc.yml', '.eslintrc.yml');
-        this.copy('.travis.yml', '.travis.yml');
-    },
-
-    installDependencies: function () {
-        this.npmInstall([
-            'ava',
-            'eslint',
-            'eslint-config-rowno',
-        ], { saveDev: true });
+module.exports = class extends Generator {
+  initializing() {
+    const now = moment()
+    this.data = {
+      appname: this.appname
     }
-});
+    this.data.day = now.format('DD')
+    this.data.month = now.format('MM')
+    this.data.year = now.format('YYYY')
+  }
+
+  prompting() {
+    return this.prompt([{
+      type: 'input',
+      name: 'username',
+      message: `What's your GitHub username?`,
+      store: true
+    }]).then(props => {
+      return githubUserInfo(props.username)
+    }).then(user => {
+      this.data.githubUser = user.login
+      this.data.realname = user.name
+      this.data.website = user.blog || user.html_url
+    })
+  }
+
+  writing() {
+    [
+      'CHANGELOG.md',
+      'LICENSE',
+      'package.json',
+      'README.md',
+      '.editorconfig',
+      '.gitattributes',
+      '.gitignore',
+      '.travis.yml',
+      'lib/index.js',
+      'test/index.js'
+    ].forEach(file => {
+      this.fs.copyTpl(
+        this.templatePath(file),
+        this.destinationPath(file),
+        this.data
+      )
+    })
+  }
+
+  install() {
+    this.npmInstall(['ava', 'xo'], {'save-dev': true})
+  }
+}

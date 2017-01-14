@@ -1,17 +1,17 @@
 {
-  "name": "<%= appnameSlug %>",
+  "name": "<%= appname %>",
   "version": "1.0.0",
   "description": "Project description.",
   "author": "<%= realname %> (<%= website %>)",
   "keywords": [],
-  "repository": "<%= githubUser %>/<%= appnameSlug %>",
+  "repository": "<%= githubUser %>/<%= appname %>",
   "license": "ISC",
   "main": "lib/index.js",
   "scripts": {
-    "test": "eslint lib test && ava"
+    "test": "xo && ava"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": "6.x.x"
   },
   "dependencies": {},
   "devDependencies": {},
