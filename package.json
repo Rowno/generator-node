@@ -9,7 +9,6 @@
   ],
   "repository": "Rowno/generator-node",
   "license": "MIT",
-  "main": "app/index.js",
   "scripts": {
     "test": "xo"
   },
@@ -17,7 +16,7 @@
     "app"
   ],
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=6"
   },
   "dependencies": {
     "github": "^8.1.0",
