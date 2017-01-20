@@ -41,16 +41,16 @@ module.exports = class extends Generator {
 
   writing() {
     [
-      'CHANGELOG.md',
-      'LICENSE',
-      'package.json',
-      'README.md',
+      'lib/index.js',
+      'test/index.js',
       '.editorconfig',
       '.gitattributes',
       '.gitignore',
       '.travis.yml',
-      'lib/index.js',
-      'test/index.js'
+      'CHANGELOG.md',
+      'LICENSE',
+      'package.json',
+      'README.md'
     ].forEach(file => {
       this.fs.copyTpl(
         this.templatePath(file),
@@ -61,6 +61,6 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.npmInstall(['ava', 'xo'], {'save-dev': true})
+    this.yarnInstall(['ava', 'xo'], {dev: true})
   }
 }
