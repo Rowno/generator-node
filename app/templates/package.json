@@ -6,6 +6,7 @@
   "keywords": [],
   "repository": "<%= githubUser %>/<%= appname %>",
   "license": "ISC",
+  "private": true,
   "main": "lib/index.js",
   "scripts": {
     "test": "xo && ava"
@@ -18,5 +19,9 @@
   "files": [
     "lib"
   ],
-  "private": true
+  "xo": {
+    "esnext": true,
+    "space": true,
+    "semicolon": false
+  }
 }
