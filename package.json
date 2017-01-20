@@ -20,7 +20,6 @@
   },
   "dependencies": {
     "github": "^8.1.0",
-    "moment": "^2.17.1",
     "yeoman-generator": "^1.0.1"
   },
   "devDependencies": {

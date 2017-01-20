@@ -1,6 +1,5 @@
 'use strict'
 const Github = require('github')
-const moment = require('moment')
 const Generator = require('yeoman-generator')
 
 const github = new Github()
@@ -15,12 +14,12 @@ function githubUserInfo(username) {
 
 module.exports = class extends Generator {
   initializing() {
-    const now = moment()
+    const now = new Date()
     this.data = {
       appname: this.appname,
-      day: now.format('DD'),
-      month: now.format('MM'),
-      year: now.format('YYYY')
+      day: now.getDate(),
+      month: now.getMonth() + 1,
+      year: now.getFullYear()
     }
   }
 
