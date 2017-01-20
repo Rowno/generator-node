@@ -17,11 +17,11 @@ module.exports = class extends Generator {
   initializing() {
     const now = moment()
     this.data = {
-      appname: this.appname
+      appname: this.appname,
+      day: now.format('DD'),
+      month: now.format('MM'),
+      year: now.format('YYYY')
     }
-    this.data.day = now.format('DD')
-    this.data.month = now.format('MM')
-    this.data.year = now.format('YYYY')
   }
 
   prompting() {
