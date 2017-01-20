@@ -41,10 +41,11 @@ module.exports = class extends Generator {
   writing() {
     [
       'lib/index.js',
-      'test/index.js',
+      'lib/index.test.js',
       '.editorconfig',
       '.gitattributes',
       '.gitignore',
+      '.npmignore',
       '.travis.yml',
       'CHANGELOG.md',
       'LICENSE',

@@ -1,7 +1,7 @@
 'use strict'
 const test = require('ava')
 
-const index = require('../lib/index')
+const index = require('./index')
 
 test('adds domain to url', t => {
   t.plan(1)
