@@ -1,6 +1,6 @@
 # <%= appname %>
 
-[![Build Status](https://api.travis-ci.org/<%= githubUser %>/<%= appname %>.svg?branch=master)](https://travis-ci.org/<%= githubUser %>/<%= appname %>)
+[![Build Status](https://travis-ci.org/<%= githubUser %>/<%= appname %>.svg?branch=master)](https://travis-ci.org/<%= githubUser %>/<%= appname %>)
 [![Dependency Status](https://david-dm.org/<%= githubUser %>/<%= appname %>/status.svg)](https://david-dm.org/<%= githubUser %>/<%= appname %>)
 
 Project description.

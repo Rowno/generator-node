@@ -1,7 +1,7 @@
 generator-node
 ==============
 
-[![Build Status](https://api.travis-ci.org/Rowno/generator-node.svg?branch=master)](https://travis-ci.org/Rowno/generator-node)
+[![Build Status](https://travis-ci.org/Rowno/generator-node.svg?branch=master)](https://travis-ci.org/Rowno/generator-node)
 [![Dependency Status](https://david-dm.org/Rowno/generator-node/status.svg)](https://david-dm.org/Rowno/generator-node)
 
 Generic [Yeoman][] generator for creating Node.js servers and modules.
