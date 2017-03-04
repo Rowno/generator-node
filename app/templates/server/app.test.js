@@ -1,7 +1,6 @@
-'use strict'
-const test = require('ava')
-const fetch = require('isomorphic-fetch')
-const app = require('./app')
+import test from 'ava'
+import fetch from 'isomorphic-fetch'
+import app from './app'
 
 let server
 
