@@ -10,7 +10,7 @@
   "repository": "Rowno/generator-node",
   "license": "MIT",
   "scripts": {
-    "test": "xo"
+    "test": "xo && ava app/*.test.js"
   },
   "files": [
     "app"
@@ -24,7 +24,11 @@
     "yeoman-generator": "^1.0.1"
   },
   "devDependencies": {
-    "xo": "^0.17.1"
+    "ava": "^0.18.2",
+    "execa": "^0.6.0",
+    "mz": "^2.6.0",
+    "xo": "^0.17.1",
+    "yeoman-test": "^1.6.0"
   },
   "xo": {
     "esnext": true,
