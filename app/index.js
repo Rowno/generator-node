@@ -1,6 +1,8 @@
 'use strict'
+const path = require('path')
 const Github = require('github')
 const Generator = require('yeoman-generator')
+const moment = require('moment')
 
 const github = new Github()
 
@@ -14,12 +16,11 @@ function githubUserInfo(username) {
 
 module.exports = class extends Generator {
   initializing() {
-    const now = new Date()
+    const now = moment()
     this.data = {
-      appname: this.appname,
-      day: now.getDate(),
-      month: now.getMonth() + 1,
-      year: now.getFullYear()
+      appname: path.basename(this.contextRoot),
+      date: now.format('YYYY-MM-DD'),
+      year: now.year()
     }
   }
 
@@ -29,32 +30,69 @@ module.exports = class extends Generator {
       name: 'username',
       message: `What's your GitHub username?`,
       store: true
-    }]).then(props => {
-      return githubUserInfo(props.username)
-    }).then(user => {
-      this.data.githubUser = user.login
-      this.data.realname = user.name
-      this.data.website = user.blog || user.html_url
+    }, {
+      type: 'list',
+      name: 'type',
+      message: 'What type of Node project is this?',
+      choices: ['Module', 'Server'],
+      filter: val => val.toLowerCase()
+    }]).then(({type, username}) => {
+      this.data.type = type
+      return githubUserInfo(username)
+    }).then(({data}) => {
+      this.data.githubUser = data.login
+      this.data.realname = data.name
+      this.data.website = data.blog || data.html_url
     })
   }
 
   writing() {
-    [
-      'lib/index.js',
-      'lib/index.test.js',
+    let files = [
       '.editorconfig',
       '.gitattributes',
       '.gitignore',
-      '.npmignore',
-      '.travis.yml',
-      'CHANGELOG.md',
-      'LICENSE',
-      'package.json',
-      'README.md'
-    ].forEach(file => {
+      'CHANGELOG.md'
+    ]
+
+    if (this.data.type === 'module') {
+      files = files.concat([
+        '.npmignore',
+        '.travis.yml',
+        'lib/index.js',
+        'lib/index.test.js',
+        'LICENSE',
+        ['Makefile-module', 'Makefile'],
+        ['package-module.json', 'package.json'],
+        ['README-module.md', 'README.md']
+      ])
+    } else if (this.data.type === 'server') {
+      files = files.concat([
+        'client/index.html',
+        'server/app.js',
+        'server/app.test.js',
+        'server/boot.js',
+        'server/utils.js',
+        ['Makefile-server', 'Makefile'],
+        ['package-server.json', 'package.json'],
+        ['README-server.md', 'README.md']
+      ])
+    }
+
+    files.forEach(file => {
+      let src
+      let dest
+
+      if (Array.isArray(file)) {
+        src = file[0]
+        dest = file[1]
+      } else {
+        src = file
+        dest = file
+      }
+
       this.fs.copyTpl(
-        this.templatePath(file),
-        this.destinationPath(file),
+        this.templatePath(src),
+        this.destinationPath(dest),
         this.data
       )
     })
@@ -62,5 +100,9 @@ module.exports = class extends Generator {
 
   install() {
     this.yarnInstall(['ava', 'xo'], {dev: true})
+
+    if (this.data.type === 'server') {
+      this.yarnInstall(['express', 'helmet', 'winston', 'isomorphic-fetch'])
+    }
   }
 }

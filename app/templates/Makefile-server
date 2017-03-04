@@ -1,0 +1,11 @@
+node_modules: package.json yarn.lock
+	yarn install
+	touch $@
+
+server: node_modules
+	npm start
+.PHONY: server
+
+test: node_modules
+	npm test
+.PHONY: test

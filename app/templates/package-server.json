@@ -1,0 +1,28 @@
+{
+  "name": "<%= appname %>",
+  "version": "1.0.0",
+  "description": "Project description.",
+  "author": "<%= realname %> (<%= website %>)",
+  "repository": "<%= githubUser %>/<%= appname %>",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "node server/boot.js",
+    "test": "xo && ava"
+  },
+  "engines": {
+    "node": "6.x.x"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "xo": {
+    "esnext": true,
+    "space": true,
+    "semicolon": false
+  },
+  "now": {
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }
+}

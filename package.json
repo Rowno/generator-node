@@ -1,7 +1,7 @@
 {
   "name": "@rowno/generator-node",
   "version": "7.0.0",
-  "description": "Generic Yeoman generator for creating Node.js applications and modules.",
+  "description": "Generic Yeoman generator for creating Node.js servers and modules.",
   "author": "Roland Warmerdam (https://roland.codes)",
   "keywords": [
     "yeoman-generator",
@@ -19,7 +19,8 @@
     "node": ">=6"
   },
   "dependencies": {
-    "github": "^8.1.0",
+    "github": "^9.1.0",
+    "moment": "^2.17.1",
     "yeoman-generator": "^1.0.1"
   },
   "devDependencies": {
@@ -28,6 +29,15 @@
   "xo": {
     "esnext": true,
     "space": true,
-    "semicolon": false
+    "semicolon": false,
+    "overrides": [
+      {
+        "files": "app/templates/**/*.js",
+        "rules": {
+          "import/no-extraneous-dependencies": "off",
+          "import/no-unresolved": "off"
+        }
+      }
+    ]
   }
 }
