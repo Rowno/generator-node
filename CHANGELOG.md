@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file.
 This project follows [Semantic Versioning](http://semver.org).
 
+## 8.0.0 / 2017-03-04
+Complete rewrite with:
+ - Updated boilerplate.
+ - Separate module and server boilerplates.
+ - Node 6 / ES6.
+ - Yarn.
+ - Switch from custom ESLint config to XO.
+ - Generator unit tests.
+
 ## 7.0.0 / 2016-02-07
  - remove: grunt.
  - remove: 'internals' variables.
