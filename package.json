@@ -24,10 +24,10 @@
     "yeoman-generator": "^1.0.1"
   },
   "devDependencies": {
-    "ava": "^0.18.2",
+    "ava": "^0.19.1",
     "execa": "^0.6.0",
     "mz": "^2.6.0",
-    "xo": "^0.17.1",
+    "xo": "^0.18.2",
     "yeoman-test": "^1.6.0"
   },
   "xo": {

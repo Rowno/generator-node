@@ -36,7 +36,7 @@ test('should inject github user details', async t => {
   t.true(pkg.author.includes('Roland'))
 })
 
-test.serial('module tests should pass', async () => {
+test.serial('module tests should pass', async t => {
   const dir = await helpers.run(__dirname)
     .withOptions({skipInstall: false})
     .withPrompts({
@@ -44,10 +44,10 @@ test.serial('module tests should pass', async () => {
       type: 'module'
     })
 
-  return execa('npm', ['test'], {cwd: dir})
+  await t.notThrows(execa('npm', ['test'], {cwd: dir}))
 })
 
-test.serial('server tests should pass', async () => {
+test.serial('server tests should pass', async t => {
   const dir = await helpers.run(__dirname)
     .withOptions({skipInstall: false})
     .withPrompts({
@@ -55,5 +55,5 @@ test.serial('server tests should pass', async () => {
       type: 'server'
     })
 
-  return execa('npm', ['test'], {cwd: dir})
+  await t.notThrows(execa('npm', ['test'], {cwd: dir}))
 })
