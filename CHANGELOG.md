@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project follows [Semantic Versioning](http://semver.org).
 
+## 8.0.2 / 2017-06-24
+ - Fix template test files being excluded from package.
+
 ## 8.0.1 / 2017-06-24
  - Fix missing template .gitignore in npm package.
  - Upgrade dependencies.
