@@ -50,7 +50,7 @@ module.exports = class extends Generator {
     let files = [
       '.editorconfig',
       '.gitattributes',
-      '.gitignore',
+      ['gitignore', '.gitignore'],
       'CHANGELOG.md'
     ]
 
