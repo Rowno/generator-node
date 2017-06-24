@@ -56,7 +56,7 @@ module.exports = class extends Generator {
 
     if (this.data.type === 'module') {
       files = files.concat([
-        '.npmignore',
+        ['npmignore', '.npmignore'],
         '.travis.yml',
         'lib/index.js',
         'lib/index.test.js',
