@@ -9,7 +9,8 @@
   "private": true,
   "main": "lib/index.js",
   "scripts": {
-    "test": "xo && ava"
+    "test": "xo && ava",
+    "precommit": "lint-staged"
   },
   "engines": {
     "node": "6.x.x"
@@ -22,5 +23,11 @@
   "xo": {
     "space": true,
     "semicolon": false
+  },
+  "lint-staged": {
+    "*.js": [
+      "xo --fix",
+      "git add"
+    ]
   }
 }

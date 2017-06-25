@@ -8,7 +8,8 @@
   "private": true,
   "scripts": {
     "start": "node server/boot.js",
-    "test": "xo && ava"
+    "test": "xo && ava",
+    "precommit": "lint-staged"
   },
   "engines": {
     "node": "6.x.x"
@@ -18,6 +19,12 @@
   "xo": {
     "space": true,
     "semicolon": false
+  },
+  "lint-staged": {
+    "*.js": [
+      "xo --fix",
+      "git add"
+    ]
   },
   "now": {
     "env": {

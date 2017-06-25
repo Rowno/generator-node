@@ -99,7 +99,7 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.yarnInstall(['ava', 'xo'], {dev: true})
+    this.yarnInstall(['ava', 'xo', 'lint-staged', 'husky'], {dev: true})
 
     if (this.data.type === 'server') {
       this.yarnInstall(['express', 'helmet', 'winston', 'isomorphic-fetch'])
