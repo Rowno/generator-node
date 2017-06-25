@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project follows [Semantic Versioning](http://semver.org).
 
+## 8.1.0 / 2017-06-24
+ - Add node 8 testing.
+
 ## 8.0.2 / 2017-06-24
  - Fix template test files being excluded from package.
 
