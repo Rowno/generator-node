@@ -20,7 +20,6 @@
     "lib"
   ],
   "xo": {
-    "esnext": true,
     "space": true,
     "semicolon": false
   }

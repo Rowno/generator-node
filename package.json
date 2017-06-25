@@ -31,7 +31,6 @@
     "yeoman-test": "^1.6.0"
   },
   "xo": {
-    "esnext": true,
     "space": true,
     "semicolon": false,
     "overrides": [

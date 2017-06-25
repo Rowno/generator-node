@@ -16,7 +16,6 @@
   "dependencies": {},
   "devDependencies": {},
   "xo": {
-    "esnext": true,
     "space": true,
     "semicolon": false
   },
