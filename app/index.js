@@ -67,6 +67,7 @@ module.exports = class extends Generator {
       ])
     } else if (this.data.type === 'server') {
       files = files.concat([
+        '.nvmrc',
         'client/index.html',
         'server/app.js',
         'server/app.test.js',
