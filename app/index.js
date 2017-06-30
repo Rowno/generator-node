@@ -50,8 +50,7 @@ module.exports = class extends Generator {
     let files = [
       '.editorconfig',
       '.gitattributes',
-      ['gitignore', '.gitignore'],
-      'CHANGELOG.md'
+      ['gitignore', '.gitignore']
     ]
 
     if (this.data.type === 'module') {
