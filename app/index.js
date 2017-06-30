@@ -49,16 +49,17 @@ module.exports = class extends Generator {
   writing() {
     let files = [
       '.editorconfig',
-      '.gitattributes',
-      ['gitignore', '.gitignore']
+      '.gitattributes'
     ]
 
     if (this.data.type === 'module') {
       files = files.concat([
+        '.babelrc',
+        ['gitignore-module', '.gitignore'],
         ['npmignore', '.npmignore'],
         '.travis.yml',
-        'lib/index.js',
-        'lib/index.test.js',
+        'src/index.js',
+        'src/index.test.js',
         'LICENSE',
         ['Makefile-module', 'Makefile'],
         ['package-module.json', 'package.json'],
@@ -66,6 +67,7 @@ module.exports = class extends Generator {
       ])
     } else if (this.data.type === 'server') {
       files = files.concat([
+        ['gitignore-server', '.gitignore'],
         '.nvmrc',
         'client/index.html',
         'server/app.js',
@@ -99,10 +101,31 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.yarnInstall(['ava', 'xo', 'lint-staged', 'husky'], {dev: true})
+    this.yarnInstall([
+      'ava',
+      'husky',
+      'lint-staged',
+      'xo'
+    ], {dev: true})
 
-    if (this.data.type === 'server') {
-      this.yarnInstall(['express', 'helmet', 'winston', 'isomorphic-fetch'])
+    if (this.data.type === 'module') {
+      this.yarnInstall([
+        'babel-cli',
+        'babel-plugin-transform-runtime',
+        'babel-preset-env',
+        'babel-register'
+      ], {dev: true})
+
+      this.yarnInstall([
+        'babel-runtime'
+      ])
+    } else if (this.data.type === 'server') {
+      this.yarnInstall([
+        'express',
+        'helmet',
+        'isomorphic-fetch',
+        'winston'
+      ])
     }
   }
 }

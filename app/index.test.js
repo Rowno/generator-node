@@ -4,13 +4,13 @@ import test from 'ava'
 import helpers from 'yeoman-test'
 import execa from 'execa'
 
-test('should create lib directory for modules', async t => {
+test('should create src directory for modules', async t => {
   const dir = await helpers.run(__dirname).withPrompts({
     username: 'Rowno',
     type: 'module'
   })
 
-  t.true(await fs.exists(path.join(dir, 'lib/index.js')))
+  t.true(await fs.exists(path.join(dir, 'src/index.js')))
   t.false(await fs.exists(path.join(dir, 'server/app.js')))
 })
 
@@ -20,7 +20,7 @@ test('should create server directory for servers', async t => {
     type: 'server'
   })
 
-  t.false(await fs.exists(path.join(dir, 'lib/index.js')))
+  t.false(await fs.exists(path.join(dir, 'src/index.js')))
   t.true(await fs.exists(path.join(dir, 'server/app.js')))
 })
 

@@ -1,0 +1,16 @@
+{
+  "plugins": ["transform-runtime"],
+  "sourceMaps": "inline",
+  "env": {
+    "commonjs": {
+      "presets": [
+        "env"
+      ]
+    },
+    "es6": {
+      "presets": [
+        ["env", {"modules": false}]
+      ]
+    }
+  }
+}

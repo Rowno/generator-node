@@ -1,3 +1,5 @@
+BIN := ./node_modules/.bin
+
 node_modules: package.json yarn.lock
 	yarn install
 	touch $@
@@ -7,5 +9,14 @@ server: node_modules
 .PHONY: server
 
 test: node_modules
-	npm test
+	$(BIN)/xo
+	$(BIN)/ava
 .PHONY: test
+
+test-watch: node_modules
+	$(BIN)/ava --watch
+.PHONY: test-watch
+
+test-update-snapshots: node_modules
+	$(BIN)/ava --update-snapshots
+.PHONY: test-update-snapshots

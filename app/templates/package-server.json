@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "start": "node server/boot.js",
-    "test": "xo && ava",
+    "test": "make test",
     "precommit": "lint-staged"
   },
   "engines": {

@@ -9,7 +9,8 @@
   "private": true,
   "main": "lib/index.js",
   "scripts": {
-    "test": "xo && ava",
+    "test": "make test",
+    "prepublishOnly": "make clean build",
     "precommit": "lint-staged"
   },
   "engines": {
@@ -29,5 +30,11 @@
       "xo --fix",
       "git add"
     ]
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   }
 }
