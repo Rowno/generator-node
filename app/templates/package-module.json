@@ -7,7 +7,12 @@
   "repository": "<%= githubUser %>/<%= appname %>",
   "license": "ISC",
   "private": true,
-  "main": "lib/index.js",
+  "main": "commonjs/index.js",
+  "module": "es6/index.js",
+  "files": [
+    "commonjs",
+    "es6"
+  ],
   "scripts": {
     "test": "make test",
     "prepublishOnly": "make clean build",
@@ -18,9 +23,6 @@
   },
   "dependencies": {},
   "devDependencies": {},
-  "files": [
-    "lib"
-  ],
   "xo": {
     "space": true,
     "semicolon": false
