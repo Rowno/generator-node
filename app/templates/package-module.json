@@ -16,8 +16,7 @@
   ],
   "scripts": {
     "test": "make test",
-    "prepublishOnly": "make clean build",
-    "precommit": "lint-staged"
+    "prepublishOnly": "make clean build"
   },
   "engines": {
     "node": ">=8"
@@ -29,12 +28,6 @@
     "prettier": true,
     "space": true,
     "semicolon": false
-  },
-  "lint-staged": {
-    "*.js": [
-      "xo --fix",
-      "git add"
-    ]
   },
   "ava": {
     "require": [

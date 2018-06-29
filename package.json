@@ -10,8 +10,7 @@
   "repository": "Rowno/generator-node",
   "license": "MIT",
   "scripts": {
-    "test": "xo && ava app/*.test.js",
-    "precommit": "lint-staged"
+    "test": "xo && ava"
   },
   "files": [
     "app"
@@ -27,8 +26,6 @@
   "devDependencies": {
     "ava": "^0.25.0",
     "execa": "^0.10.0",
-    "husky": "^0.14.1",
-    "lint-staged": "^7.2.0",
     "mz": "^2.7.0",
     "xo": "^0.21.1",
     "yeoman-test": "^1.8.0"
@@ -47,13 +44,9 @@
       }
     ]
   },
-  "lint-staged": {
-    "*.js": [
-      "xo --fix",
-      "git add"
-    ]
-  },
   "ava": {
-    "files": ["test/*.js"]
+    "files": [
+      "test/*.js"
+    ]
   }
 }

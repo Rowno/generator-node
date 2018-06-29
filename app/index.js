@@ -91,7 +91,7 @@ module.exports = class GeneratorNode extends Generator {
   }
 
   install() {
-    this.yarnInstall(['ava', 'husky', 'lint-staged', 'xo', 'babel-eslint'], {
+    this.yarnInstall(['ava', 'xo', 'babel-eslint'], {
       dev: true
     })
 
