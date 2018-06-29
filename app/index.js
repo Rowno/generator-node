@@ -16,9 +16,9 @@ module.exports = class GeneratorNode extends Generator {
     }
 
     try {
-      const username = await this.github.username()
-      const data = await github.users.getForUser({username})
-      this.data.githubUser = data.login
+      const username = await this.user.github.username()
+      const {data} = await github.users.getForUser({username})
+      this.data.githubUser = username
       this.data.realname = data.name
       this.data.website = data.blog || data.html_url
     } catch (err) {

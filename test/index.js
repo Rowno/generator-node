@@ -4,8 +4,10 @@ import test from 'ava'
 import helpers from 'yeoman-test'
 import execa from 'execa'
 
+const GENERATOR_PATH = path.resolve(__dirname, '../app')
+
 test('should create src directory for modules', async t => {
-  const dir = await helpers.run(__dirname).withPrompts({
+  const dir = await helpers.run(GENERATOR_PATH).withPrompts({
     username: 'Rowno',
     type: 'module'
   })
@@ -15,7 +17,7 @@ test('should create src directory for modules', async t => {
 })
 
 test('should create server directory for servers', async t => {
-  const dir = await helpers.run(__dirname).withPrompts({
+  const dir = await helpers.run(GENERATOR_PATH).withPrompts({
     username: 'Rowno',
     type: 'server'
   })
@@ -25,7 +27,7 @@ test('should create server directory for servers', async t => {
 })
 
 test('should inject github user details', async t => {
-  const dir = await helpers.run(__dirname).withPrompts({
+  const dir = await helpers.run(GENERATOR_PATH).withPrompts({
     username: 'Rowno',
     type: 'module'
   })
@@ -38,7 +40,7 @@ test('should inject github user details', async t => {
 
 test.serial('module tests should pass', async t => {
   const dir = await helpers
-    .run(__dirname)
+    .run(GENERATOR_PATH)
     .withOptions({skipInstall: false})
     .withPrompts({
       username: 'Rowno',
@@ -50,7 +52,7 @@ test.serial('module tests should pass', async t => {
 
 test.serial('server tests should pass', async t => {
   const dir = await helpers
-    .run(__dirname)
+    .run(GENERATOR_PATH)
     .withOptions({skipInstall: false})
     .withPrompts({
       username: 'Rowno',

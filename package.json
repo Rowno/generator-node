@@ -52,5 +52,8 @@
       "xo --fix",
       "git add"
     ]
+  },
+  "ava": {
+    "files": ["test/*.js"]
   }
 }
