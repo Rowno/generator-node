@@ -28,8 +28,7 @@ module.exports = class extends Generator {
     return this.prompt([{
       type: 'input',
       name: 'username',
-      message: `What's your GitHub username?`,
-      store: true
+      message: `What's your GitHub username?`
     }, {
       type: 'list',
       name: 'type',
