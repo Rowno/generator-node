@@ -104,7 +104,8 @@ module.exports = class extends Generator {
       'ava',
       'husky',
       'lint-staged',
-      'xo'
+      'xo',
+      'babel-eslint'
     ], {dev: true})
 
     if (this.data.type === 'module') {

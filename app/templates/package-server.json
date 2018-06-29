@@ -17,6 +17,8 @@
   "dependencies": {},
   "devDependencies": {},
   "xo": {
+    "parser": "babel-eslint",
+    "prettier": true,
     "space": true,
     "semicolon": false
   },
