@@ -110,14 +110,9 @@ module.exports = class extends Generator {
     if (this.data.type === 'module') {
       this.yarnInstall([
         'babel-cli',
-        'babel-plugin-transform-runtime',
         'babel-preset-env',
         'babel-register'
       ], {dev: true})
-
-      this.yarnInstall([
-        'babel-runtime'
-      ])
     } else if (this.data.type === 'server') {
       this.yarnInstall([
         'express',

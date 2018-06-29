@@ -1,5 +1,4 @@
 {
-  "plugins": ["transform-runtime"],
   "sourceMaps": "inline",
   "env": {
     "commonjs": {
