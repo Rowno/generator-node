@@ -20,18 +20,18 @@
     "node": ">=8"
   },
   "dependencies": {
-    "github": "^9.2.0",
-    "moment": "^2.18.1",
-    "yeoman-generator": "^1.1.1"
+    "@octokit/rest": "^15.9.3",
+    "moment": "^2.22.2",
+    "yeoman-generator": "^2.0.5"
   },
   "devDependencies": {
-    "ava": "^0.19.1",
-    "execa": "^0.7.0",
+    "ava": "^0.25.0",
+    "execa": "^0.10.0",
     "husky": "^0.14.1",
-    "lint-staged": "^4.0.0",
-    "mz": "^2.6.0",
-    "xo": "^0.18.2",
-    "yeoman-test": "^1.6.0"
+    "lint-staged": "^7.2.0",
+    "mz": "^2.7.0",
+    "xo": "^0.21.1",
+    "yeoman-test": "^1.8.0"
   },
   "xo": {
     "space": true,

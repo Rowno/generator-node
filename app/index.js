@@ -1,48 +1,40 @@
 'use strict'
 const path = require('path')
-const Github = require('github')
+const Github = require('@octokit/rest')
 const Generator = require('yeoman-generator')
 const moment = require('moment')
 
 const github = new Github()
 
-function githubUserInfo(username) {
-  return github.users.getForUser({
-    username
-  }).catch(err => {
-    throw new Error(`Could not fetch your GitHub profile. Make sure you typed it correctly.\n\n${err.message}`)
-  })
-}
-
-module.exports = class extends Generator {
-  initializing() {
+module.exports = class GeneratorNode extends Generator {
+  async initializing() {
     const now = moment()
     this.data = {
       appname: path.basename(this.contextRoot),
       date: now.format('YYYY-MM-DD'),
       year: now.year()
     }
+
+    try {
+      const username = await this.github.username()
+      const data = await github.users.getForUser({username})
+      this.data.githubUser = data.login
+      this.data.realname = data.name
+      this.data.website = data.blog || data.html_url
+    } catch (err) {
+      throw new Error(`Could not fetch your GitHub profile.\n\n${err.message}`)
+    }
   }
 
-  prompting() {
-    return this.prompt([{
-      type: 'input',
-      name: 'username',
-      message: `What's your GitHub username?`
-    }, {
+  async prompting() {
+    const options = await this.prompt([{
       type: 'list',
       name: 'type',
       message: 'What type of Node project is this?',
       choices: ['Module', 'Server'],
       filter: val => val.toLowerCase()
-    }]).then(({type, username}) => {
-      this.data.type = type
-      return githubUserInfo(username)
-    }).then(({data}) => {
-      this.data.githubUser = data.login
-      this.data.realname = data.name
-      this.data.website = data.blog || data.html_url
-    })
+    }])
+    this.data.type = options.type
   }
 
   writing() {
