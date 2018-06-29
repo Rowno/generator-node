@@ -1,13 +1,12 @@
 # <%= appname %>
 
-[![Build Status](https://travis-ci.org/<%= githubUser %>/<%= appname %>.svg?branch=master)](https://travis-ci.org/<%= githubUser %>/<%= appname %>)
-[![Dependency Status](https://david-dm.org/<%= githubUser %>/<%= appname %>/status.svg)](https://david-dm.org/<%= githubUser %>/<%= appname %>)
+[![Travis](https://travis-ci.com/<%= githubUser %>/<%= appname %>.svg?branch=master)](https://travis-ci.com/<%= githubUser %>/<%= appname %>)
 
 Project description.
 
 
-License
--------
+## License
+
 <%= appname %> is released under the ISC license.
 
 Copyright © <%= year %>, <%= realname %>.
