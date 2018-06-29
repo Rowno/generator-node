@@ -12,12 +12,14 @@ app.use(helmet())
 app.use(express.static('client'))
 
 app.use((req, res) => {
-  res.status(404).sendFile(path.join(__dirname, '../client/index.html'), err => {
-    if (err) {
-      logger.error(err)
-      res.status(err.status).end()
-    }
-  })
+  res
+    .status(404)
+    .sendFile(path.join(__dirname, '../client/index.html'), err => {
+      if (err) {
+        logger.error(err)
+        res.status(err.status).end()
+      }
+    })
 })
 
 module.exports = app

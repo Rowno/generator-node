@@ -27,21 +27,20 @@ module.exports = class GeneratorNode extends Generator {
   }
 
   async prompting() {
-    const options = await this.prompt([{
-      type: 'list',
-      name: 'type',
-      message: 'What type of Node project is this?',
-      choices: ['Module', 'Server'],
-      filter: val => val.toLowerCase()
-    }])
+    const options = await this.prompt([
+      {
+        type: 'list',
+        name: 'type',
+        message: 'What type of Node project is this?',
+        choices: ['Module', 'Server'],
+        filter: val => val.toLowerCase()
+      }
+    ])
     this.data.type = options.type
   }
 
   writing() {
-    let files = [
-      '.editorconfig',
-      '.gitattributes'
-    ]
+    let files = ['.editorconfig', '.gitattributes']
 
     if (this.data.type === 'module') {
       files = files.concat([
@@ -92,27 +91,16 @@ module.exports = class GeneratorNode extends Generator {
   }
 
   install() {
-    this.yarnInstall([
-      'ava',
-      'husky',
-      'lint-staged',
-      'xo',
-      'babel-eslint'
-    ], {dev: true})
+    this.yarnInstall(['ava', 'husky', 'lint-staged', 'xo', 'babel-eslint'], {
+      dev: true
+    })
 
     if (this.data.type === 'module') {
-      this.yarnInstall([
-        'babel-cli',
-        'babel-preset-env',
-        'babel-register'
-      ], {dev: true})
+      this.yarnInstall(['babel-cli', 'babel-preset-env', 'babel-register'], {
+        dev: true
+      })
     } else if (this.data.type === 'server') {
-      this.yarnInstall([
-        'express',
-        'helmet',
-        'isomorphic-fetch',
-        'winston'
-      ])
+      this.yarnInstall(['express', 'helmet', 'isomorphic-fetch', 'winston'])
     }
   }
 }

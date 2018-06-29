@@ -37,7 +37,8 @@ test('should inject github user details', async t => {
 })
 
 test.serial('module tests should pass', async t => {
-  const dir = await helpers.run(__dirname)
+  const dir = await helpers
+    .run(__dirname)
     .withOptions({skipInstall: false})
     .withPrompts({
       username: 'Rowno',
@@ -48,7 +49,8 @@ test.serial('module tests should pass', async t => {
 })
 
 test.serial('server tests should pass', async t => {
-  const dir = await helpers.run(__dirname)
+  const dir = await helpers
+    .run(__dirname)
     .withOptions({skipInstall: false})
     .withPrompts({
       username: 'Rowno',
