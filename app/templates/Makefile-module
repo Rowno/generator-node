@@ -22,12 +22,12 @@ test-update-snapshots: node_modules
 commonjs: node_modules
 	BABEL_ENV=commonjs $(BIN)/babel src --out-dir commonjs --ignore $(BUILD_IGNORE)
 
-es6: node_modules
-	BABEL_ENV=es6 $(BIN)/babel src --out-dir es6 --ignore $(BUILD_IGNORE)
+esm: node_modules
+	BABEL_ENV=esm $(BIN)/babel src --out-dir esm --ignore $(BUILD_IGNORE)
 
-build: commonjs es6
+build: commonjs esm
 .PHONY: build
 
 clean:
-	rm -rf commonjs es6
+	rm -rf commonjs esm
 .PHONY: clean

@@ -7,7 +7,7 @@
         "env"
       ]
     },
-    "es6": {
+    "esm": {
       "presets": [
         ["env", {"modules": false}]
       ]

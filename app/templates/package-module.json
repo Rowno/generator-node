@@ -8,10 +8,11 @@
   "license": "ISC",
   "private": true,
   "main": "commonjs/index.js",
-  "module": "es6/index.js",
+  "module": "esm/index.js",
+  "sideEffects": false,
   "files": [
     "commonjs",
-    "es6"
+    "esm"
   ],
   "scripts": {
     "test": "make test",
