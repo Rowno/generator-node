@@ -1,11 +1,9 @@
 'use strict'
 const path = require('path')
-const Github = require('@octokit/rest')
+const ghUser = require('gh-user')
 const Generator = require('yeoman-generator')
 const moment = require('moment')
 const globby = require('globby')
-
-const github = new Github()
 
 module.exports = class GeneratorNode extends Generator {
   async initializing() {
@@ -45,10 +43,10 @@ module.exports = class GeneratorNode extends Generator {
     ])
 
     try {
-      const {data} = await github.users.getForUser({username: options.username})
+      const user = await ghUser(options.username)
       this.data.githubUser = options.username
-      this.data.realname = data.name
-      this.data.website = data.blog || data.html_url
+      this.data.realname = user.name
+      this.data.website = user.blog || user.html_url
     } catch (err) {
       throw new Error(`Couldn't fetch your GitHub profile: ${err.message}`)
     }

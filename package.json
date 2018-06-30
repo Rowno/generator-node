@@ -19,7 +19,7 @@
     "node": ">=8"
   },
   "dependencies": {
-    "@octokit/rest": "^15.9.3",
+    "gh-user": "^3.0.0",
     "globby": "^8.0.1",
     "moment": "^2.22.2",
     "yeoman-generator": "^2.0.5"
