@@ -13,8 +13,7 @@
     "src"
   ],
   "scripts": {
-    "test": "make test",
-    "prepublishOnly": "make clean build"
+    "test": "make test"
   },
   "engines": {
     "node": ">=8"

@@ -1,6 +1,4 @@
 BIN := ./node_modules/.bin
-BUILD_IGNORE = '**/*.test.js'
-export BABEL_ENV = commonjs
 
 node_modules: package.json yarn.lock
 	yarn install
@@ -18,16 +16,3 @@ test-watch: node_modules
 test-update-snapshots: node_modules
 	$(BIN)/ava --update-snapshots
 .PHONY: test-update-snapshots
-
-commonjs: node_modules
-	BABEL_ENV=commonjs $(BIN)/babel src --out-dir commonjs --ignore $(BUILD_IGNORE)
-
-esm: node_modules
-	BABEL_ENV=esm $(BIN)/babel src --out-dir esm --ignore $(BUILD_IGNORE)
-
-build: commonjs esm
-.PHONY: build
-
-clean:
-	rm -rf commonjs esm
-.PHONY: clean
