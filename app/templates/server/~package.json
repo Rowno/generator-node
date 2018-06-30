@@ -8,7 +8,8 @@
   "private": true,
   "scripts": {
     "start": "node src/boot.js",
-    "test": "xo && ava"
+    "test": "xo && ava",
+    "dev": "nodemon src/boot.js"
   },
   "engines": {
     "node": "^8.0.0"

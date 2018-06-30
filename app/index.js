@@ -99,8 +99,14 @@ module.exports = class GeneratorNode extends Generator {
     } else if (this.data.type === 'module') {
       this.yarnInstall(['ava', 'babel-eslint', 'xo'], {dev: true})
     } else if (this.data.type === 'server') {
-      this.yarnInstall(['helmet', 'isomorphic-fetch', 'winston', 'express'])
-      this.yarnInstall(['ava', 'babel-eslint', 'xo'], {dev: true})
+      this.yarnInstall([
+        'express',
+        'helmet',
+        'isomorphic-fetch',
+        'lodash',
+        'winston'
+      ])
+      this.yarnInstall(['ava', 'babel-eslint', 'nodemon', 'xo'], {dev: true})
     }
   }
 }
