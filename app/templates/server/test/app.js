@@ -1,6 +1,6 @@
 import test from 'ava'
 import fetch from 'isomorphic-fetch'
-import app from './app'
+import app from '../src/app'
 
 let server
 

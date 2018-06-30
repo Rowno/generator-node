@@ -16,6 +16,7 @@
   ],
   "scripts": {
     "test": "make test",
+    "build": "make build",
     "prepublishOnly": "make clean build"
   },
   "engines": {
@@ -25,14 +26,26 @@
   "devDependencies": {},
   "xo": {
     "parser": "babel-eslint",
+    "extends": "xo-react",
+    "envs": [
+      "node",
+      "browser"
+    ],
     "prettier": true,
     "space": true,
     "semicolon": false
   },
   "ava": {
     "require": [
-      "babel-register"
+      "babel-register",
+      "./tools/enzyme-config"
     ],
     "babel": "inherit"
-  }
+  },
+  "size-limit": [
+    {
+      "path": "esm/index.js",
+      "limit": "5 KB"
+    }
+  ]
 }

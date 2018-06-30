@@ -3,6 +3,7 @@ const path = require('path')
 const Github = require('@octokit/rest')
 const Generator = require('yeoman-generator')
 const moment = require('moment')
+const globby = require('globby')
 
 const github = new Github()
 
@@ -14,93 +15,93 @@ module.exports = class GeneratorNode extends Generator {
       date: now.format('YYYY-MM-DD'),
       year: now.year()
     }
-
-    try {
-      const username = await this.user.github.username()
-      const {data} = await github.users.getForUser({username})
-      this.data.githubUser = username
-      this.data.realname = data.name
-      this.data.website = data.blog || data.html_url
-    } catch (err) {
-      throw new Error(`Could not fetch your GitHub profile.\n\n${err.message}`)
-    }
   }
 
   async prompting() {
+    // Try to guess the user's github username
+    let username
+    try {
+      username = await this.user.github.username()
+    } catch (err) {}
+
     const options = await this.prompt([
+      {
+        type: 'input',
+        name: 'username',
+        message: `What's your GitHub username?`,
+        default: username
+      },
       {
         type: 'list',
         name: 'type',
-        message: 'What type of Node project is this?',
-        choices: ['Module', 'Server'],
-        filter: val => val.toLowerCase()
+        message: 'What type of project is this?',
+        choices: [
+          {name: 'React Component', value: 'react'},
+          {name: 'Module', value: 'module'},
+          {name: 'Server', value: 'server'}
+        ],
+        default: 'module'
       }
     ])
+
+    try {
+      const {data} = await github.users.getForUser({username: options.username})
+      this.data.githubUser = options.username
+      this.data.realname = data.name
+      this.data.website = data.blog || data.html_url
+    } catch (err) {
+      throw new Error(`Couldn't fetch your GitHub profile: ${err.message}`)
+    }
+
     this.data.type = options.type
   }
 
-  writing() {
-    let files = ['.editorconfig', '.gitattributes']
+  async writing() {
+    const templatesPath = path.join(__dirname, 'templates', this.data.type)
+    this.sourceRoot(templatesPath)
 
-    if (this.data.type === 'module') {
-      files = files.concat([
-        '.babelrc',
-        ['gitignore-module', '.gitignore'],
-        ['npmignore', '.npmignore'],
-        '.travis.yml',
-        'src/index.js',
-        'src/index.test.js',
-        'LICENSE',
-        ['Makefile-module', 'Makefile'],
-        ['package-module.json', 'package.json'],
-        ['README-module.md', 'README.md']
-      ])
-    } else if (this.data.type === 'server') {
-      files = files.concat([
-        ['gitignore-server', '.gitignore'],
-        '.nvmrc',
-        'client/index.html',
-        'server/app.js',
-        'server/app.test.js',
-        'server/boot.js',
-        'server/utils.js',
-        ['Makefile-server', 'Makefile'],
-        ['package-server.json', 'package.json'],
-        ['README-server.md', 'README.md']
-      ])
-    }
+    let files = await globby(templatesPath, {dot: true})
+    // Convert back to relative paths
+    files = files.map(file => path.relative(templatesPath, file))
 
-    files.forEach(file => {
-      let src
-      let dest
-
-      if (Array.isArray(file)) {
-        src = file[0]
-        dest = file[1]
-      } else {
-        src = file
-        dest = file
-      }
-
+    for (const file of files) {
       this.fs.copyTpl(
-        this.templatePath(src),
-        this.destinationPath(dest),
+        this.templatePath(file),
+        this.destinationPath(file.replace('~', '')),
         this.data
       )
-    })
+    }
   }
 
   install() {
-    this.yarnInstall(['ava', 'xo', 'babel-eslint'], {
-      dev: true
-    })
-
-    if (this.data.type === 'module') {
-      this.yarnInstall(['babel-cli', 'babel-preset-env', 'babel-register'], {
-        dev: true
-      })
+    if (this.data.type === 'react') {
+      this.yarnInstall(['prop-types'])
+      this.yarnInstall(
+        [
+          'ava',
+          'babel-cli',
+          'babel-core',
+          'babel-eslint',
+          'babel-preset-env',
+          'babel-preset-react',
+          'babel-preset-stage-0',
+          'babel-register',
+          'enzyme',
+          'enzyme-adapter-react-16',
+          'eslint-config-xo-react',
+          'eslint-plugin-react',
+          'react',
+          'react-dom',
+          'size-limit',
+          'xo'
+        ],
+        {dev: true}
+      )
+    } else if (this.data.type === 'module') {
+      this.yarnInstall(['ava', 'babel-eslint', 'xo'], {dev: true})
     } else if (this.data.type === 'server') {
-      this.yarnInstall(['express', 'helmet', 'isomorphic-fetch', 'winston'])
+      this.yarnInstall(['helmet', 'isomorphic-fetch', 'winston', 'express'])
+      this.yarnInstall(['ava', 'babel-eslint', 'xo'], {dev: true})
     }
   }
 }

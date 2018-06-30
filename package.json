@@ -20,13 +20,14 @@
   },
   "dependencies": {
     "@octokit/rest": "^15.9.3",
+    "globby": "^8.0.1",
     "moment": "^2.22.2",
     "yeoman-generator": "^2.0.5"
   },
   "devDependencies": {
     "ava": "^0.25.0",
     "execa": "^0.10.0",
-    "mz": "^2.7.0",
+    "fs-extra": "^6.0.1",
     "xo": "^0.21.1",
     "yeoman-test": "^1.8.0"
   },
@@ -39,7 +40,8 @@
         "files": "app/templates/**/*.js",
         "rules": {
           "import/no-extraneous-dependencies": "off",
-          "import/no-unresolved": "off"
+          "import/no-unresolved": "off",
+          "ava/no-ignored-test-files": "off"
         }
       }
     ]

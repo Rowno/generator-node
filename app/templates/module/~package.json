@@ -1,0 +1,30 @@
+{
+  "name": "<%= appname %>",
+  "version": "0.0.0",
+  "description": "Project description.",
+  "author": "<%= realname %> (<%= website %>)",
+  "keywords": [],
+  "repository": "<%= githubUser %>/<%= appname %>",
+  "license": "ISC",
+  "private": true,
+  "main": "src/index.js",
+  "sideEffects": false,
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "make test",
+    "prepublishOnly": "make clean build"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "xo": {
+    "parser": "babel-eslint",
+    "prettier": true,
+    "space": true,
+    "semicolon": false
+  }
+}

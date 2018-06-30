@@ -1,30 +1,10 @@
 import path from 'path'
-import fs from 'mz/fs'
+import fs from 'fs-extra'
 import test from 'ava'
 import helpers from 'yeoman-test'
 import execa from 'execa'
 
 const GENERATOR_PATH = path.resolve(__dirname, '../app')
-
-test('should create src directory for modules', async t => {
-  const dir = await helpers.run(GENERATOR_PATH).withPrompts({
-    username: 'Rowno',
-    type: 'module'
-  })
-
-  t.true(await fs.exists(path.join(dir, 'src/index.js')))
-  t.false(await fs.exists(path.join(dir, 'server/app.js')))
-})
-
-test('should create server directory for servers', async t => {
-  const dir = await helpers.run(GENERATOR_PATH).withPrompts({
-    username: 'Rowno',
-    type: 'server'
-  })
-
-  t.false(await fs.exists(path.join(dir, 'src/index.js')))
-  t.true(await fs.exists(path.join(dir, 'server/app.js')))
-})
 
 test('should inject github user details', async t => {
   const dir = await helpers.run(GENERATOR_PATH).withPrompts({
@@ -47,7 +27,7 @@ test.serial('module tests should pass', async t => {
       type: 'module'
     })
 
-  await t.notThrows(execa('npm', ['test'], {cwd: dir}))
+  await t.notThrows(execa('yarn', ['test'], {cwd: dir}))
 })
 
 test.serial('server tests should pass', async t => {
@@ -59,5 +39,19 @@ test.serial('server tests should pass', async t => {
       type: 'server'
     })
 
-  await t.notThrows(execa('npm', ['test'], {cwd: dir}))
+  await t.notThrows(execa('yarn', ['test'], {cwd: dir}))
+})
+
+test.serial('react tests should pass', async t => {
+  const dir = await helpers
+    .run(GENERATOR_PATH)
+    .withOptions({skipInstall: false})
+    .withPrompts({
+      username: 'Rowno',
+      type: 'react'
+    })
+
+  await t.notThrows(execa('yarn', ['test'], {cwd: dir}))
+  await t.notThrows(execa('yarn', ['build'], {cwd: dir}))
+  await t.notThrows(execa('yarn', ['size-limit'], {cwd: dir}))
 })

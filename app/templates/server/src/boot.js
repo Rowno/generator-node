@@ -1,6 +1,6 @@
 'use strict'
 const app = require('./app')
-const {logger} = require('./utils')
+const logger = require('./logger')
 
 logger.info('Server starting...')
 app.listen(3000, () => {
