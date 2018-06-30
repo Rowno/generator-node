@@ -7,8 +7,8 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "start": "node server/boot.js",
-    "test": "make test"
+    "start": "node src/boot.js",
+    "test": "xo && ava"
   },
   "engines": {
     "node": "^8.0.0"

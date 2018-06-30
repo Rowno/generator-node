@@ -13,7 +13,7 @@
     "src"
   ],
   "scripts": {
-    "test": "make test"
+    "test": "xo && ava"
   },
   "engines": {
     "node": ">=8"

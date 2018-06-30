@@ -86,6 +86,7 @@ module.exports = class GeneratorNode extends Generator {
           'babel-preset-react',
           'babel-preset-stage-0',
           'babel-register',
+          'concurrently',
           'enzyme',
           'enzyme-adapter-react-16',
           'eslint-config-xo-react',

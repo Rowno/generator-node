@@ -15,12 +15,12 @@
     "esm"
   ],
   "scripts": {
-    "test": "make test",
-    "build": "make build",
-    "prepublishOnly": "make clean build"
-  },
-  "engines": {
-    "node": ">=8"
+    "test": "xo && ava",
+    "prepublishOnly": "yarn clean && yarn build",
+    "build-commonjs": "BABEL_ENV=commonjs babel src --out-dir commonjs --source-maps inline",
+    "build-esm": "BABEL_ENV=esm babel src --out-dir esm --source-maps inline",
+    "build": "concurrently --names 'commonjs,esm' 'yarn build-commonjs' 'yarn build-esm'",
+    "clean": "rm -rf commonjs esm"
   },
   "dependencies": {},
   "devDependencies": {},
