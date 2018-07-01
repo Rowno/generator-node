@@ -1,21 +1,19 @@
-generator-node
-==============
+# generator-node
 
-[![Build Status](https://travis-ci.org/Rowno/generator-node.svg?branch=master)](https://travis-ci.org/Rowno/generator-node)
-[![Dependency Status](https://david-dm.org/Rowno/generator-node/status.svg)](https://david-dm.org/Rowno/generator-node)
+[![Travis](https://travis-ci.org/Rowno/generator-node.svg?branch=master)](https://travis-ci.org/Rowno/generator-node)
 
-Generic [Yeoman][] generator for creating Node.js servers and modules.
+Generic [Yeoman][] generator for creating Node.js modules, servers and React components.
 
 
-Usage
------
+## Usage
+
  - Install [Yeoman][]: `npm install -g yo`
  - Install generator-node: `npm install -g @rowno/generator-node`
  - Run: `yo @rowno/node`
 
 
-License
--------
+## License
+
 generator-node is released under the MIT license.
 
 Copyright © 2012 Roland Warmerdam.
