@@ -1,6 +1,6 @@
 # <%= appname %>
 
-[![Travis](https://travis-ci.com/Rowno/<%= appname %>.svg?branch=master)](https://travis-ci.com/Rowno/<%= appname %>)
+[![Travis](https://travis-ci.com/<%= githubUser %>/<%= appname %>.svg?branch=master)](https://travis-ci.com/<%= githubUser %>/<%= appname %>)
 
 Project description.
 
@@ -9,4 +9,4 @@ Project description.
 
 <%= appname %> is released under the ISC license.
 
-Copyright © 2018, Roland Warmerdam.
+Copyright © <%= year %>, <%= realname %>.
