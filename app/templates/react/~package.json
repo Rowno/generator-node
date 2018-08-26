@@ -33,7 +33,12 @@
     ],
     "prettier": true,
     "space": true,
-    "semicolon": false
+    "semicolon": false,
+    "settings": {
+      "react": {
+        "version": "16.4.2"
+      }
+    }
   },
   "ava": {
     "require": [
