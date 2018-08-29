@@ -27,7 +27,7 @@ test.serial('module tests should pass', async t => {
       type: 'module'
     })
 
-  await t.notThrows(execa('yarn', ['test'], {cwd: dir}))
+  await t.notThrowsAsync(execa('yarn', ['test'], {cwd: dir}))
 })
 
 test.serial('server tests should pass', async t => {
@@ -39,7 +39,7 @@ test.serial('server tests should pass', async t => {
       type: 'server'
     })
 
-  await t.notThrows(execa('yarn', ['test'], {cwd: dir}))
+  await t.notThrowsAsync(execa('yarn', ['test'], {cwd: dir}))
 })
 
 test.serial('react tests should pass', async t => {
@@ -51,7 +51,7 @@ test.serial('react tests should pass', async t => {
       type: 'react'
     })
 
-  await t.notThrows(execa('yarn', ['test'], {cwd: dir}))
-  await t.notThrows(execa('yarn', ['build'], {cwd: dir}))
-  await t.notThrows(execa('yarn', ['size-limit'], {cwd: dir}))
+  await t.notThrowsAsync(execa('yarn', ['test'], {cwd: dir}))
+  await t.notThrowsAsync(execa('yarn', ['build'], {cwd: dir}))
+  await t.notThrowsAsync(execa('yarn', ['size-limit'], {cwd: dir}))
 })

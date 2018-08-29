@@ -72,6 +72,13 @@ module.exports = class GeneratorNode extends Generator {
   }
 
   install() {
+    // Extend package.json with a specific ava version for babel 7 compatibility
+    this.fs.extendJSON(this.destinationPath('package.json'), {
+      devDependencies: {
+        ava: '1.0.0-beta.8'
+      }
+    })
+
     if (this.data.type === 'react') {
       this.yarnInstall(['prop-types'])
       this.yarnInstall(
@@ -82,7 +89,6 @@ module.exports = class GeneratorNode extends Generator {
           '@babel/preset-env',
           '@babel/preset-react',
           '@babel/register',
-          'ava',
           'babel-eslint',
           'concurrently',
           'enzyme',
@@ -97,7 +103,7 @@ module.exports = class GeneratorNode extends Generator {
         {dev: true}
       )
     } else if (this.data.type === 'module') {
-      this.yarnInstall(['ava', 'babel-eslint', 'xo'], {dev: true})
+      this.yarnInstall(['babel-eslint', 'xo'], {dev: true})
     } else if (this.data.type === 'server') {
       this.yarnInstall([
         'express',
@@ -106,7 +112,7 @@ module.exports = class GeneratorNode extends Generator {
         'lodash',
         'winston'
       ])
-      this.yarnInstall(['ava', 'babel-eslint', 'nodemon', 'xo'], {dev: true})
+      this.yarnInstall(['babel-eslint', 'nodemon', 'xo'], {dev: true})
     }
   }
 }
