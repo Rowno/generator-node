@@ -22,17 +22,17 @@
     "gh-user": "^3.0.0",
     "globby": "^8.0.1",
     "moment": "^2.22.2",
-    "yeoman-generator": "^2.0.5"
+    "yeoman-generator": "^3.1.1"
   },
   "devDependencies": {
     "ava": "^0.25.0",
-    "babel-eslint": "^8.2.5",
-    "eslint-config-xo-react": "^0.16.0",
-    "eslint-plugin-react": "^7.10.0",
-    "execa": "^0.10.0",
-    "fs-extra": "^6.0.1",
-    "xo": "^0.21.1",
-    "yeoman-test": "^1.8.0"
+    "babel-eslint": "^9.0.0",
+    "eslint-config-xo-react": "^0.17.0",
+    "eslint-plugin-react": "^7.11.1",
+    "execa": "^1.0.0",
+    "fs-extra": "^7.0.0",
+    "xo": "^0.22.0",
+    "yeoman-test": "^1.9.1"
   },
   "xo": {
     "parser": "babel-eslint",
@@ -40,6 +40,11 @@
     "prettier": true,
     "space": true,
     "semicolon": false,
+    "settings": {
+      "react": {
+        "version": "16.4.2"
+      }
+    },
     "overrides": [
       {
         "files": "app/templates/**/*.js",
