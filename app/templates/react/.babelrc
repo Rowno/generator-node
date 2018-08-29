@@ -1,19 +1,16 @@
 {
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties"
+  ],
   "env": {
-    "development": {
-      "presets": ["env", "react", "stage-0"]
-    },
-    "test": {
-      "presets": ["env", "react", "stage-0"]
-    },
-    "production": {
-      "presets": ["env", "react", "stage-0"]
-    },
-    "commonjs": {
-      "presets": ["env", "react", "stage-0"]
-    },
     "esm": {
-      "presets": [["env", { "modules": false }], "react", "stage-0"]
+      "presets": [
+        ["@babel/preset-env", {"modules": false}]
+      ]
     }
   }
 }

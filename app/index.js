@@ -76,14 +76,14 @@ module.exports = class GeneratorNode extends Generator {
       this.yarnInstall(['prop-types'])
       this.yarnInstall(
         [
+          '@babel/cli',
+          '@babel/core',
+          '@babel/plugin-proposal-class-properties',
+          '@babel/preset-env',
+          '@babel/preset-react',
+          '@babel/register',
           'ava',
-          'babel-cli',
-          'babel-core',
           'babel-eslint',
-          'babel-preset-env',
-          'babel-preset-react',
-          'babel-preset-stage-0',
-          'babel-register',
           'concurrently',
           'enzyme',
           'enzyme-adapter-react-16',
