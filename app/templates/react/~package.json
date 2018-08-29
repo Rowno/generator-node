@@ -43,7 +43,7 @@
   "ava": {
     "require": [
       "babel-register",
-      "./tools/enzyme-config"
+      "./test/_setup"
     ],
     "babel": "inherit"
   },
