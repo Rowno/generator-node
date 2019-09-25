@@ -10,12 +10,10 @@
   "main": "commonjs/index.js",
   "module": "esm/index.js",
   "sideEffects": false,
-  "files": [
-    "commonjs",
-    "esm"
-  ],
+  "files": ["commonjs", "esm"],
   "scripts": {
-    "test": "xo && ava",
+    "test": "yarn lint && ava",
+    "lint": "eslint '**/*.js'",
     "prepublishOnly": "yarn clean && yarn build",
     "build-commonjs": "BABEL_ENV=commonjs babel src --out-dir commonjs --source-maps inline",
     "build-esm": "BABEL_ENV=esm babel src --out-dir esm --source-maps inline",
@@ -26,7 +24,7 @@
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
-    "react": "^16.4.0"
+    "react": "^16.8.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.2",
@@ -41,34 +39,35 @@
     "concurrently": "^4.1.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-xo": "^0.26.0",
     "eslint-config-xo-react": "^0.20.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^2.0.1",
+    "prettier": "^1.18.2",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "xo": "^0.24.0"
+    "react-dom": "^16.9.0"
   },
-  "xo": {
+  "eslintConfig": {
     "parser": "babel-eslint",
-    "extends": "xo-react",
-    "envs": [
-      "node",
-      "browser"
-    ],
-    "prettier": true,
-    "space": true,
-    "semicolon": false,
+    "extends": ["xo/esnext", "xo-react", "prettier", "prettier/react"],
+    "env": {
+      "browser": true,
+      "node": true
+    },
     "settings": {
       "react": {
         "version": "detect"
       }
     }
   },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
   "ava": {
-    "require": [
-      "@babel/register",
-      "./test/_setup"
-    ]
+    "require": ["@babel/register", "./test/_setup"]
   },
   "size-limit": [
     {

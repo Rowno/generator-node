@@ -21,37 +21,37 @@ test('should inject github user details', async t => {
 test.serial('module tests should pass', async t => {
   const dir = await helpers
     .run(GENERATOR_PATH)
-    .withOptions({skipInstall: false})
+    .withOptions({ skipInstall: false })
     .withPrompts({
       username: 'Rowno',
       type: 'module'
     })
 
-  await t.notThrowsAsync(execa('yarn', ['test'], {cwd: dir}))
+  await t.notThrowsAsync(execa('yarn', ['test'], { cwd: dir }))
 })
 
 test.serial('server tests should pass', async t => {
   const dir = await helpers
     .run(GENERATOR_PATH)
-    .withOptions({skipInstall: false})
+    .withOptions({ skipInstall: false })
     .withPrompts({
       username: 'Rowno',
       type: 'server'
     })
 
-  await t.notThrowsAsync(execa('yarn', ['test'], {cwd: dir}))
+  await t.notThrowsAsync(execa('yarn', ['test'], { cwd: dir }))
 })
 
 test.serial('react tests should pass', async t => {
   const dir = await helpers
     .run(GENERATOR_PATH)
-    .withOptions({skipInstall: false})
+    .withOptions({ skipInstall: false })
     .withPrompts({
       username: 'Rowno',
       type: 'react'
     })
 
-  await t.notThrowsAsync(execa('yarn', ['test'], {cwd: dir}))
-  await t.notThrowsAsync(execa('yarn', ['build'], {cwd: dir}))
-  await t.notThrowsAsync(execa('yarn', ['size-limit'], {cwd: dir}))
+  await t.notThrowsAsync(execa('yarn', ['test'], { cwd: dir }))
+  await t.notThrowsAsync(execa('yarn', ['build'], { cwd: dir }))
+  await t.notThrowsAsync(execa('yarn', ['size-limit'], { cwd: dir }))
 })

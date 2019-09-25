@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
 export default class Button extends PureComponent {
@@ -12,7 +12,7 @@ export default class Button extends PureComponent {
   }
 
   render() {
-    const {children, href} = this.props
+    const { children, href } = this.props
 
     return href ? (
       <a href={href}>{children}</a>

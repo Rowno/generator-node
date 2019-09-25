@@ -1,8 +1,8 @@
 'use strict'
-const {once} = require('lodash')
+const { once } = require('lodash')
 const app = require('./app')
 const logger = require('./logger')
-const {PORT} = require('./config')
+const { PORT } = require('./config')
 
 const server = app.listen(PORT, err => {
   if (err) {
@@ -18,14 +18,14 @@ const gracefulShutdown = once(exitCode => {
   server.close(() => {
     logger.info('Server stopped')
     // Leave time for logging / error capture
-    setTimeout(() => process.exit(exitCode), 300) // eslint-disable-line unicorn/no-process-exit
+    setTimeout(() => process.exit(exitCode), 300)
   })
 
   // Forcibly shutdown after 8 seconds (Docker forcibly kills after 10 seconds)
   setTimeout(() => {
     logger.crit('Forcibly shutting down')
     // Leave time for logging / error capture
-    setTimeout(() => process.exit(1), 300) // eslint-disable-line unicorn/no-process-exit
+    setTimeout(() => process.exit(1), 300)
   }, 8000)
 })
 

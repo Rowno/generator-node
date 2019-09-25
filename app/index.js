@@ -34,9 +34,9 @@ module.exports = class GeneratorNode extends Generator {
         name: 'type',
         message: 'What type of project is this?',
         choices: [
-          {name: 'React Component', value: 'react'},
-          {name: 'Module', value: 'module'},
-          {name: 'Server', value: 'server'}
+          { name: 'React Component', value: 'react' },
+          { name: 'Module', value: 'module' },
+          { name: 'Server', value: 'server' }
         ],
         default: 'module'
       }
@@ -58,7 +58,7 @@ module.exports = class GeneratorNode extends Generator {
     const templatesPath = path.join(__dirname, 'templates', this.data.type)
     this.sourceRoot(templatesPath)
 
-    let files = await globby(templatesPath, {dot: true})
+    let files = await globby(templatesPath, { dot: true })
     // Convert back to relative paths
     files = files.map(file => path.relative(templatesPath, file))
 
