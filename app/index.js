@@ -20,7 +20,7 @@ module.exports = class GeneratorNode extends Generator {
     let username
     try {
       username = await this.user.github.username()
-    } catch (err) {}
+    } catch (error) {}
 
     const options = await this.prompt([
       {
@@ -47,8 +47,8 @@ module.exports = class GeneratorNode extends Generator {
       this.data.githubUser = options.username
       this.data.realname = user.name
       this.data.website = user.blog || user.html_url
-    } catch (err) {
-      throw new Error(`Couldn't fetch your GitHub profile: ${err.message}`)
+    } catch (error) {
+      throw new Error(`Couldn't fetch your GitHub profile: ${error.message}`)
     }
 
     this.data.type = options.type
@@ -95,9 +95,10 @@ module.exports = class GeneratorNode extends Generator {
           'enzyme-adapter-react-16',
           'eslint-config-xo-react',
           'eslint-plugin-react',
+          'eslint-plugin-react-hooks',
           'react',
           'react-dom',
-          'size-limit',
+          '@size-limit/preset-small-lib',
           'xo'
         ],
         {dev: true}

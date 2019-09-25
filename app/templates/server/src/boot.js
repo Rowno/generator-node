@@ -8,6 +8,7 @@ const server = app.listen(PORT, err => {
   if (err) {
     throw err
   }
+
   logger.info(`Listening at http://localhost:${PORT}`)
 })
 
