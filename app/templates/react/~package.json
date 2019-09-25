@@ -22,11 +22,32 @@
     "build": "concurrently --names 'commonjs,esm' 'yarn build-commonjs' 'yarn build-esm'",
     "clean": "rm -rf commonjs esm"
   },
-  "dependencies": {},
+  "dependencies": {
+    "prop-types": "^15.7.2"
+  },
   "peerDependencies": {
     "react": "^16.4.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.6.2",
+    "@size-limit/preset-small-lib": "^2.1.6",
+    "ava": "^2.4.0",
+    "babel-eslint": "^10.0.3",
+    "concurrently": "^4.1.2",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "eslint-config-xo-react": "^0.20.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "xo": "^0.24.0"
+  },
   "xo": {
     "parser": "babel-eslint",
     "extends": "xo-react",

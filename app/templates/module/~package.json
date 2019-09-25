@@ -19,7 +19,11 @@
     "node": ">=8"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "ava": "^2.4.0",
+    "babel-eslint": "^10.0.3",
+    "xo": "^0.24.0"
+  },
   "xo": {
     "parser": "babel-eslint",
     "prettier": true,
