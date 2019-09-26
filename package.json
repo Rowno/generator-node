@@ -10,7 +10,7 @@
   "repository": "Rowno/generator-node",
   "license": "MIT",
   "scripts": {
-    "test": "yarn lint && ava",
+    "test": "yarn lint && jest",
     "lint": "eslint '**/*.js'"
   },
   "files": [
@@ -26,7 +26,6 @@
     "yeoman-generator": "^4.0.2"
   },
   "devDependencies": {
-    "ava": "2.4.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.4.0",
     "eslint-config-prettier": "^6.3.0",
@@ -36,6 +35,7 @@
     "eslint-plugin-react-hooks": "^2.0.1",
     "execa": "^2.0.4",
     "fs-extra": "^8.1.0",
+    "jest": "^24.9.0",
     "prettier": "^1.18.2",
     "yeoman-test": "^2.0.0"
   },
@@ -48,7 +48,8 @@
       "prettier/react"
     ],
     "env": {
-      "node": true
+      "node": true,
+      "jest": true
     },
     "settings": {
       "react": {
@@ -60,9 +61,8 @@
     "semi": false,
     "singleQuote": true
   },
-  "ava": {
-    "files": [
-      "test/*.js"
-    ]
+  "jest": {
+    "testEnvironment": "node",
+    "clearMocks": true
   }
 }
