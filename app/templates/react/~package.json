@@ -41,10 +41,10 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^6.4.0",
     "eslint-config-prettier": "^6.3.0",
-    "eslint-config-xo": "^0.26.0",
+    "eslint-config-xo": "^0.27.1",
     "eslint-config-xo-react": "^0.20.0",
     "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^2.0.1",
+    "eslint-plugin-react-hooks": "^2.1.0",
     "prettier": "^1.18.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
