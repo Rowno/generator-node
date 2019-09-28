@@ -20,7 +20,7 @@ module.exports = class GeneratorNode extends Generator {
     let username
     try {
       username = await this.user.github.username()
-    } catch (error) {}
+    } catch (_) {}
 
     const options = await this.prompt([
       {
