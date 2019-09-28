@@ -1,7 +1,5 @@
 # generator-node
 
-[![Travis](https://travis-ci.org/Rowno/generator-node.svg?branch=master)](https://travis-ci.org/Rowno/generator-node)
-
 Generic [Yeoman][] generator for creating Node.js modules, servers and React components.
 
 ## Usage
