@@ -63,6 +63,9 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "clearMocks": true
+    "clearMocks": true,
+    "testMatch": [
+      "**/tests/**/*.js"
+    ]
   }
 }
