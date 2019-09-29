@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "start": "node src/boot.js",
-    "test": "yarn lint && jest",
+    "test": "jest",
     "lint": "eslint '**/*.js'",
     "dev": "nodemon src/boot.js"
   },

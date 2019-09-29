@@ -7,28 +7,44 @@
   "repository": "<%= githubUser %>/<%= appname %>",
   "license": "ISC",
   "private": true,
-  "main": "src/index.js",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "sideEffects": false,
-  "files": ["src"],
+  "files": ["dist/src"],
   "scripts": {
-    "test": "yarn lint && jest",
-    "lint": "eslint '**/*.js'"
+    "prepublishOnly": "yarn clean && yarn build",
+    "test": "jest",
+    "lint": "eslint '**/*.ts'",
+    "build": "tsc",
+    "clean": "rimraf dist"
   },
   "engines": {
     "node": ">=10"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/node": "^10"
+  },
   "devDependencies": {
-    "babel-eslint": "^10.0.3",
+    "@types/jest": "^24.0.18",
+    "@typescript-eslint/eslint-plugin": "^2.3.1",
+    "@typescript-eslint/parser": "^2.3.1",
     "eslint": "^6.4.0",
     "eslint-config-prettier": "^6.3.0",
     "eslint-config-xo": "^0.27.1",
+    "eslint-config-xo-typescript": "^0.19.0",
     "jest": "^24.9.0",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3"
   },
   "eslintConfig": {
-    "parser": "babel-eslint",
-    "extends": ["xo/esnext", "prettier"],
+    "extends": [
+      "xo/esnext",
+      "xo-typescript",
+      "prettier",
+      "prettier/@typescript-eslint"
+    ],
     "env": {
       "node": true,
       "jest": true
@@ -36,10 +52,13 @@
   },
   "prettier": {
     "semi": false,
-    "singleQuote": true
+    "singleQuote": true,
+    "printWidth": 120
   },
   "jest": {
+    "preset": "ts-jest",
     "testEnvironment": "node",
-    "clearMocks": true
+    "clearMocks": true,
+    "testPathIgnorePatterns": ["<rootDir>/dist/"]
   }
 }

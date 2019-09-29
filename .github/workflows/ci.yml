@@ -21,7 +21,10 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
 
-      - name: Run tests
+      - name: Lint
+        run: yarn lint
+
+      - name: Test
         run: yarn test
         env:
           CI: true

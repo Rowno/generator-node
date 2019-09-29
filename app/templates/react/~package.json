@@ -12,7 +12,7 @@
   "sideEffects": false,
   "files": ["commonjs", "esm"],
   "scripts": {
-    "test": "yarn lint && jest",
+    "test": "jest",
     "lint": "eslint '**/*.js'",
     "prepublishOnly": "yarn clean && yarn build",
     "build-commonjs": "BABEL_ENV=commonjs babel src --out-dir commonjs --source-maps inline",
