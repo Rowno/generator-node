@@ -15,7 +15,7 @@
     "lint": "eslint '**/*.js'"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "dependencies": {},
   "devDependencies": {
