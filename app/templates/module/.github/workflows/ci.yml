@@ -21,13 +21,13 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
 
-      - name: Build
+      - name: Build TypeScript
         run: yarn build
 
-      - name: Lint
+      - name: Lint files
         run: yarn lint
 
-      - name: Test
+      - name: Run tests
         run: yarn test
         env:
           CI: true
