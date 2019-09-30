@@ -63,11 +63,7 @@ module.exports = class GeneratorNode extends Generator {
     files = files.map(file => path.relative(templatesPath, file))
 
     for (const file of files) {
-      this.fs.copyTpl(
-        this.templatePath(file),
-        this.destinationPath(file.replace('~', '')),
-        this.data
-      )
+      this.fs.copyTpl(this.templatePath(file), this.destinationPath(file.replace('~', '')), this.data)
     }
   }
 

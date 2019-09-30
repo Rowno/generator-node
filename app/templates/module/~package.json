@@ -40,12 +40,7 @@
   },
   "eslintIgnore": ["/dist/"],
   "eslintConfig": {
-    "extends": [
-      "xo/esnext",
-      "xo-typescript",
-      "prettier",
-      "prettier/@typescript-eslint"
-    ],
+    "extends": ["xo/esnext", "xo-typescript", "prettier", "prettier/@typescript-eslint"],
     "env": {
       "node": true,
       "jest": true

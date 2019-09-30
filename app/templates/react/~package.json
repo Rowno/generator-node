@@ -51,14 +51,7 @@
   },
   "eslintIgnore": ["/dist/"],
   "eslintConfig": {
-    "extends": [
-      "xo/esnext",
-      "xo-typescript",
-      "xo-react",
-      "prettier",
-      "prettier/@typescript-eslint",
-      "prettier/react"
-    ],
+    "extends": ["xo/esnext", "xo-typescript", "xo-react", "prettier", "prettier/@typescript-eslint", "prettier/react"],
     "env": {
       "browser": true,
       "node": true,
