@@ -7,51 +7,58 @@
   "repository": "<%= githubUser %>/<%= appname %>",
   "license": "ISC",
   "private": true,
-  "main": "commonjs/index.js",
-  "module": "esm/index.js",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "sideEffects": false,
-  "files": ["commonjs", "esm"],
+  "files": ["dist/src"],
   "scripts": {
-    "test": "jest",
-    "lint": "eslint '**/*.js'",
     "prepublishOnly": "yarn clean && yarn build",
-    "build-commonjs": "BABEL_ENV=commonjs babel src --out-dir commonjs --source-maps inline",
-    "build-esm": "BABEL_ENV=esm babel src --out-dir esm --source-maps inline",
-    "build": "concurrently --names 'commonjs,esm' 'yarn build-commonjs' 'yarn build-esm'",
-    "clean": "rm -rf commonjs esm"
+    "test": "jest",
+    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+    "build": "tsc",
+    "clean": "rimraf dist"
   },
   "dependencies": {
+    "@types/react": "^16.9.3",
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
     "react": "^16.8.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.6.2",
-    "@babel/core": "^7.6.2",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/preset-env": "^7.6.2",
-    "@babel/preset-react": "^7.0.0",
     "@size-limit/preset-small-lib": "^2.1.6",
-    "babel-eslint": "^10.0.3",
-    "babel-jest": "^24.9.0",
-    "concurrently": "^4.1.2",
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.18",
+    "@typescript-eslint/eslint-plugin": "^2.3.1",
+    "@typescript-eslint/parser": "^2.3.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^6.4.0",
     "eslint-config-prettier": "^6.3.0",
     "eslint-config-xo": "^0.27.1",
     "eslint-config-xo-react": "^0.20.0",
+    "eslint-config-xo-typescript": "^0.19.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^2.1.0",
     "jest": "^24.9.0",
     "prettier": "^1.18.2",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3"
   },
+  "eslintIgnore": ["/dist/"],
   "eslintConfig": {
-    "parser": "babel-eslint",
-    "extends": ["xo/esnext", "xo-react", "prettier", "prettier/react"],
+    "extends": [
+      "xo/esnext",
+      "xo-typescript",
+      "xo-react",
+      "prettier",
+      "prettier/@typescript-eslint",
+      "prettier/react"
+    ],
     "env": {
       "browser": true,
       "node": true,
@@ -65,16 +72,19 @@
   },
   "prettier": {
     "semi": false,
-    "singleQuote": true
+    "singleQuote": true,
+    "printWidth": 120
   },
   "jest": {
+    "preset": "ts-jest",
     "testEnvironment": "node",
     "clearMocks": true,
-    "setupFiles": ["./scripts/test-setup.js"]
+    "testPathIgnorePatterns": ["<rootDir>/dist/"],
+    "setupFiles": ["./scripts/test-setup.ts"]
   },
   "size-limit": [
     {
-      "path": "esm/index.js",
+      "path": "dist/src/index.js",
       "limit": "5 KB"
     }
   ]

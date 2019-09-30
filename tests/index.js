@@ -28,9 +28,9 @@ test('module tests should pass', async () => {
       type: 'module'
     })
 
-  await expect(execa('yarn', ['test'], { cwd: dir })).resolves.toMatchObject({
-    exitCode: 0
-  })
+  await expect(execa('yarn', ['build'], { cwd: dir })).resolves.toMatchObject({ exitCode: 0 })
+  await expect(execa('yarn', ['lint'], { cwd: dir })).resolves.toMatchObject({ exitCode: 0 })
+  await expect(execa('yarn', ['test'], { cwd: dir })).resolves.toMatchObject({ exitCode: 0 })
 })
 
 test('server tests should pass', async () => {
@@ -42,9 +42,8 @@ test('server tests should pass', async () => {
       type: 'server'
     })
 
-  await expect(execa('yarn', ['test'], { cwd: dir })).resolves.toMatchObject({
-    exitCode: 0
-  })
+  await expect(execa('yarn', ['lint'], { cwd: dir })).resolves.toMatchObject({ exitCode: 0 })
+  await expect(execa('yarn', ['test'], { cwd: dir })).resolves.toMatchObject({ exitCode: 0 })
 })
 
 test('react tests should pass', async () => {
@@ -56,15 +55,8 @@ test('react tests should pass', async () => {
       type: 'react'
     })
 
-  await expect(execa('yarn', ['test'], { cwd: dir })).resolves.toMatchObject({
-    exitCode: 0
-  })
-  await expect(execa('yarn', ['build'], { cwd: dir })).resolves.toMatchObject({
-    exitCode: 0
-  })
-  await expect(
-    execa('yarn', ['size-limit'], { cwd: dir })
-  ).resolves.toMatchObject({
-    exitCode: 0
-  })
+  await expect(execa('yarn', ['build'], { cwd: dir })).resolves.toMatchObject({ exitCode: 0 })
+  await expect(execa('yarn', ['lint'], { cwd: dir })).resolves.toMatchObject({ exitCode: 0 })
+  await expect(execa('yarn', ['test'], { cwd: dir })).resolves.toMatchObject({ exitCode: 0 })
+  await expect(execa('yarn', ['size-limit'], { cwd: dir })).resolves.toMatchObject({ exitCode: 0 })
 })
