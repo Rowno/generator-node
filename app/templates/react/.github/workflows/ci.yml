@@ -2,6 +2,9 @@ name: CI
 
 on: [push, pull_request]
 
+env:
+  CI: true
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -29,8 +32,6 @@ jobs:
 
       - name: Run tests
         run: yarn test
-        env:
-          CI: true
 
       - name: Check package size
         run: yarn size-limit
