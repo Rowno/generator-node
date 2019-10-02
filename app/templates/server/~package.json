@@ -7,33 +7,52 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "start": "node src/boot.js",
     "test": "jest",
-    "lint": "eslint '**/*.js'",
-    "dev": "nodemon src/boot.js"
+    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+    "build": "tsc && yarn copy-public",
+    "copy-public": "copyfiles 'src/public/**/*' dist",
+    "clean": "rimraf dist",
+    "start": "node dist/src/boot.js",
+    "dev-typescript": "tsc --watch --preserveWatchOutput",
+    "dev-server": "nodemon --inspect=38093 --watch dist dist/src/boot.js",
+    "dev-copy-static": "nodemon --watch src/public --ext '*' --exec 'yarn copy-public'",
+    "dev": "yarn build && concurrently 'yarn dev-typescript' 'yarn dev-server' 'yarn dev-copy-static'"
   },
   "engines": {
     "node": ">=10"
   },
   "dependencies": {
+    "copyfiles": "^2.1.1",
     "express": "^4.17.1",
+    "got": "^9.6.0",
     "helmet": "^3.21.1",
-    "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.15",
     "winston": "^3.2.1"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.3",
+    "@types/express": "^4.17.1",
+    "@types/got": "^9.6.7",
+    "@types/helmet": "^0.0.44",
+    "@types/jest": "^24.0.18",
+    "@types/lodash": "^4.14.141",
+    "@types/node": "^10",
+    "@typescript-eslint/eslint-plugin": "^2.3.1",
+    "@typescript-eslint/parser": "^2.3.1",
+    "concurrently": "^4.1.2",
     "eslint": "^6.4.0",
     "eslint-config-prettier": "^6.3.0",
     "eslint-config-xo": "^0.27.1",
+    "eslint-config-xo-typescript": "^0.19.0",
     "jest": "^24.9.0",
     "nodemon": "^1.19.2",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3"
   },
+  "eslintIgnore": ["/dist/"],
   "eslintConfig": {
-    "parser": "babel-eslint",
-    "extends": ["xo/esnext", "prettier"],
+    "extends": ["xo/esnext", "xo-typescript", "prettier", "prettier/@typescript-eslint"],
     "env": {
       "node": true,
       "jest": true
@@ -41,10 +60,13 @@
   },
   "prettier": {
     "semi": false,
-    "singleQuote": true
+    "singleQuote": true,
+    "printWidth": 120
   },
   "jest": {
+    "preset": "ts-jest",
     "testEnvironment": "node",
-    "clearMocks": true
+    "clearMocks": true,
+    "testPathIgnorePatterns": ["<rootDir>/dist/"]
   }
 }

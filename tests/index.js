@@ -42,6 +42,7 @@ test('server tests should pass', async () => {
       type: 'server'
     })
 
+  await expect(execa('yarn', ['build'], { cwd: dir })).resolves.toMatchObject({ exitCode: 0 })
   await expect(execa('yarn', ['lint'], { cwd: dir })).resolves.toMatchObject({ exitCode: 0 })
   await expect(execa('yarn', ['test'], { cwd: dir })).resolves.toMatchObject({ exitCode: 0 })
 })

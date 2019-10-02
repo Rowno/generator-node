@@ -1,18 +1,13 @@
-'use strict'
-const { once } = require('lodash')
-const app = require('./app')
-const logger = require('./logger')
-const { PORT } = require('./config')
+import { once } from 'lodash'
+import app from './app'
+import logger from './logger'
+import { PORT } from './config'
 
-const server = app.listen(PORT, err => {
-  if (err) {
-    throw err
-  }
-
+const server = app.listen(PORT, () => {
   logger.info(`Listening at http://localhost:${PORT}`)
 })
 
-const gracefulShutdown = once(exitCode => {
+const gracefulShutdown = once((exitCode: number) => {
   logger.info('Server stopping...')
 
   server.close(() => {
@@ -29,7 +24,7 @@ const gracefulShutdown = once(exitCode => {
   }, 8000)
 })
 
-function handleUncaught(error, crashType) {
+function handleUncaught(error: any, crashType: string): void {
   error.crashType = crashType
   logger.crit('😱  Server crashed', error)
 }
