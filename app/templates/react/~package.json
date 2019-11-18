@@ -52,6 +52,9 @@
   "eslintIgnore": ["/dist/"],
   "eslintConfig": {
     "extends": ["xo/esnext", "xo-typescript", "xo-react", "prettier", "prettier/@typescript-eslint", "prettier/react"],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
     "env": {
       "browser": true,
       "node": true,

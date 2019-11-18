@@ -41,6 +41,9 @@
   "eslintIgnore": ["/dist/"],
   "eslintConfig": {
     "extends": ["xo/esnext", "xo-typescript", "prettier", "prettier/@typescript-eslint"],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
     "env": {
       "node": true,
       "jest": true
