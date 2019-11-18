@@ -1,6 +1,6 @@
 {
   "name": "@rowno/generator-node",
-  "version": "11.1.0",
+  "version": "11.1.1",
   "description": "Generic Yeoman generator for creating Node.js servers and modules.",
   "author": "Roland Warmerdam (https://roland.codes)",
   "keywords": [
